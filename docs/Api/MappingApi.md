@@ -1,0 +1,123 @@
+# OpenAPI\Client\MappingApi
+
+All URIs are relative to http://localhost.
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getMapping()**](MappingApi.md#getMapping) | **GET** /{ledger}/mapping | Get mapping
+[**updateMapping()**](MappingApi.md#updateMapping) | **PUT** /{ledger}/mapping | Put mapping
+
+
+## `getMapping()`
+
+```php
+getMapping($ledger): \OpenAPI\Client\Model\MappingResponse
+```
+
+Get mapping
+
+Get ledger mapping
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\MappingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$ledger = 'ledger_example'; // string | ledger
+
+try {
+    $result = $apiInstance->getMapping($ledger);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MappingApi->getMapping: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ledger** | **string**| ledger |
+
+### Return type
+
+[**\OpenAPI\Client\Model\MappingResponse**](../Model/MappingResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateMapping()`
+
+```php
+updateMapping($ledger, $mapping): \OpenAPI\Client\Model\MappingResponse
+```
+
+Put mapping
+
+Update ledger mapping
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\MappingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$ledger = 'ledger_example'; // string | ledger
+$mapping = new \OpenAPI\Client\Model\Mapping(); // \OpenAPI\Client\Model\Mapping | mapping
+
+try {
+    $result = $apiInstance->updateMapping($ledger, $mapping);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MappingApi->updateMapping: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ledger** | **string**| ledger |
+ **mapping** | [**\OpenAPI\Client\Model\Mapping**](../Model/Mapping.md)| mapping |
+
+### Return type
+
+[**\OpenAPI\Client\Model\MappingResponse**](../Model/MappingResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
