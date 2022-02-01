@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Numary\Ledger
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,21 +25,21 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace OpenAPI\Client\Test\Api;
+namespace Numary\Ledger\Test\Api;
 
 use GuzzleHttp\Client;
-use OpenAPI\Client\Api\TransactionsApi;
-use \OpenAPI\Client\Configuration;
-use \OpenAPI\Client\ApiException;
-use OpenAPI\Client\Model\TransactionData;
-use \OpenAPI\Client\ObjectSerializer;
+use Numary\Ledger\Api\TransactionsApi;
+use \Numary\Ledger\Configuration;
+use \Numary\Ledger\ApiException;
+use Numary\Ledger\Model\TransactionData;
+use \Numary\Ledger\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * TransactionsApiTest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Numary\Ledger
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -142,6 +142,47 @@ class TransactionsApiTest extends ApiTest
         $txs = $this->transactionApi->listTransactions($this->ledger);
         $this->assertCount(2, $txs->getCursor()->getData());
     }
+
+        /**
+         * Test case for createTransactions with conflict
+         *
+         * Create Transactions Batch with conflict.
+         *
+         * @throws ApiException
+         */
+        public function testCreateTransactionsWithConflict()
+        {
+            try {
+                $this->transactionApi->createTransactions($this->ledger, [
+                    "transactions" => [
+                        [
+                            "postings" => [
+                                [
+                                    "source" => "world",
+                                    "destination" => "player1",
+                                    "amount" => 100,
+                                    "asset" => "USD"
+                                ]
+                            ],
+                            "reference" => "ref"
+                        ],
+                        [
+                            "postings" => [
+                                [
+                                    "source" => "world",
+                                    "destination" => "player2",
+                                    "amount" => 100,
+                                    "asset" => "USD"
+                                ]
+                            ],
+                            "reference" => "ref"
+                        ],
+                    ]
+                ]);
+            } catch (\Numary\Ledger\ApiException $e) {
+                $this->assertEquals("CONFLICT", $e->getResponseObject()["data"][1]->getErrorCode());
+            }
+        }
 
     /**
      * Test case for getTransaction

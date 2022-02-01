@@ -1,4 +1,4 @@
-# OpenAPI\Client\StatsApi
+# Numary\Ledger\StatsApi
 
 All URIs are relative to http://localhost.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `readStats()`
 
 ```php
-readStats($ledger): \OpenAPI\Client\Model\StatsResponse
+readStats($ledger): \Numary\Ledger\Model\StatsResponse
 ```
 
 Get Stats
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\StatsApi(
+$apiInstance = new Numary\Ledger\Api\StatsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\StatsResponse**](../Model/StatsResponse.md)
+[**\Numary\Ledger\Model\StatsResponse**](../Model/StatsResponse.md)
 
 ### Authorization
 

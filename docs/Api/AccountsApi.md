@@ -1,4 +1,4 @@
-# OpenAPI\Client\AccountsApi
+# Numary\Ledger\AccountsApi
 
 All URIs are relative to http://localhost.
 
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+$apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -69,7 +69,7 @@ No authorization required
 ## `getAccount()`
 
 ```php
-getAccount($ledger, $account_id): \OpenAPI\Client\Model\AccountResponse
+getAccount($ledger, $account_id): \Numary\Ledger\Model\AccountResponse
 ```
 
 Get account by address
@@ -82,7 +82,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+$apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AccountResponse**](../Model/AccountResponse.md)
+[**\Numary\Ledger\Model\AccountResponse**](../Model/AccountResponse.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ No authorization required
 ## `listAccounts()`
 
 ```php
-listAccounts($ledger, $after): \OpenAPI\Client\Model\AccountCursorResponse
+listAccounts($ledger, $after): \Numary\Ledger\Model\AccountCursorResponse
 ```
 
 List all accounts
@@ -138,7 +138,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+$apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AccountCursorResponse**](../Model/AccountCursorResponse.md)
+[**\Numary\Ledger\Model\AccountCursorResponse**](../Model/AccountCursorResponse.md)
 
 ### Authorization
 

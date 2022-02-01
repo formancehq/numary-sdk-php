@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **has_more** | **bool** |  |
-**next** | **string** |  |
+**next** | **string** |  | [optional]
 **page_size** | **int** |  |
-**previous** | **string** |  |
+**previous** | **string** |  | [optional]
 **remaining_results** | **int** |  |
 **total** | **int** |  |
 

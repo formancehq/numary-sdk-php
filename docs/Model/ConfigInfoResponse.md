@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\OpenAPI\Client\Model\ConfigInfo**](ConfigInfo.md) |  |
+**data** | [**\Numary\Ledger\Model\ConfigInfo**](ConfigInfo.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

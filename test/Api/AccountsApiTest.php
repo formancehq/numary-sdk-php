@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Numary\Ledger
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,22 +25,22 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace OpenAPI\Client\Test\Api;
+namespace Numary\Ledger\Test\Api;
 
 use GuzzleHttp\Client;
-use OpenAPI\Client\Api\AccountsApi;
-use OpenAPI\Client\Api\TransactionsApi;
-use \OpenAPI\Client\Configuration;
-use \OpenAPI\Client\ApiException;
-use OpenAPI\Client\Model\TransactionData;
-use \OpenAPI\Client\ObjectSerializer;
+use Numary\Ledger\Api\AccountsApi;
+use Numary\Ledger\Api\TransactionsApi;
+use \Numary\Ledger\Configuration;
+use \Numary\Ledger\ApiException;
+use Numary\Ledger\Model\TransactionData;
+use \Numary\Ledger\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * AccountsApiTest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Numary\Ledger
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\ServerApi
+# Numary\Ledger\ServerApi
 
 All URIs are relative to http://localhost.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `getInfo()`
 
 ```php
-getInfo(): \OpenAPI\Client\Model\ConfigInfoResponse
+getInfo(): \Numary\Ledger\Model\ConfigInfoResponse
 ```
 
 Server Info
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ServerApi(
+$apiInstance = new Numary\Ledger\Api\ServerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ConfigInfoResponse**](../Model/ConfigInfoResponse.md)
+[**\Numary\Ledger\Model\ConfigInfoResponse**](../Model/ConfigInfoResponse.md)
 
 ### Authorization
 

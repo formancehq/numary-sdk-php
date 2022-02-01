@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **has_more** | **bool** |  |
-**next** | **string** |  |
+**next** | **string** |  | [optional]
 **page_size** | **int** |  |
-**previous** | **string** |  |
+**previous** | **string** |  | [optional]
 **remaining_results** | **int** |  |
 **total** | **int** |  |
-**data** | [**\OpenAPI\Client\Model\Account[]**](Account.md) |  |
+**data** | [**\Numary\Ledger\Model\Account[]**](Account.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

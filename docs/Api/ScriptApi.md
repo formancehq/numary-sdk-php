@@ -1,4 +1,4 @@
-# OpenAPI\Client\ScriptApi
+# Numary\Ledger\ScriptApi
 
 All URIs are relative to http://localhost.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `runScript()`
 
 ```php
-runScript($ledger, $script): \OpenAPI\Client\Model\ScriptResult
+runScript($ledger, $script): \Numary\Ledger\Model\ScriptResult
 ```
 
 Execute Numscript
@@ -25,13 +25,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ScriptApi(
+$apiInstance = new Numary\Ledger\Api\ScriptApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $ledger = 'ledger_example'; // string | ledger
-$script = new \OpenAPI\Client\Model\Script(); // \OpenAPI\Client\Model\Script | script
+$script = new \Numary\Ledger\Model\Script(); // \Numary\Ledger\Model\Script | script
 
 try {
     $result = $apiInstance->runScript($ledger, $script);
@@ -46,11 +46,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| ledger |
- **script** | [**\OpenAPI\Client\Model\Script**](../Model/Script.md)| script |
+ **script** | [**\Numary\Ledger\Model\Script**](../Model/Script.md)| script |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ScriptResult**](../Model/ScriptResult.md)
+[**\Numary\Ledger\Model\ScriptResult**](../Model/ScriptResult.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# OpenAPI\Client\TransactionsApi
+# Numary\Ledger\TransactionsApi
 
 All URIs are relative to http://localhost.
 
@@ -30,7 +30,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TransactionsApi(
+$apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -74,7 +74,7 @@ No authorization required
 ## `createTransaction()`
 
 ```php
-createTransaction($ledger, $transaction_data): \OpenAPI\Client\Model\TransactionListResponse
+createTransaction($ledger, $transaction_data): \Numary\Ledger\Model\CreateTransactionResponse
 ```
 
 Create Transaction
@@ -89,13 +89,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TransactionsApi(
+$apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $ledger = 'ledger_example'; // string | ledger
-$transaction_data = new \OpenAPI\Client\Model\TransactionData(); // \OpenAPI\Client\Model\TransactionData | transaction
+$transaction_data = new \Numary\Ledger\Model\TransactionData(); // \Numary\Ledger\Model\TransactionData | transaction
 
 try {
     $result = $apiInstance->createTransaction($ledger, $transaction_data);
@@ -110,11 +110,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| ledger |
- **transaction_data** | [**\OpenAPI\Client\Model\TransactionData**](../Model/TransactionData.md)| transaction |
+ **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)| transaction |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TransactionListResponse**](../Model/TransactionListResponse.md)
+[**\Numary\Ledger\Model\CreateTransactionResponse**](../Model/CreateTransactionResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ No authorization required
 ## `createTransactions()`
 
 ```php
-createTransactions($ledger, $transactions): \OpenAPI\Client\Model\TransactionListResponse
+createTransactions($ledger, $transactions): \Numary\Ledger\Model\TransactionListResponse
 ```
 
 Create Transactions Batch
@@ -147,13 +147,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TransactionsApi(
+$apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $ledger = 'ledger_example'; // string | ledger
-$transactions = new \OpenAPI\Client\Model\Transactions(); // \OpenAPI\Client\Model\Transactions | transactions
+$transactions = new \Numary\Ledger\Model\Transactions(); // \Numary\Ledger\Model\Transactions | transactions
 
 try {
     $result = $apiInstance->createTransactions($ledger, $transactions);
@@ -168,11 +168,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| ledger |
- **transactions** | [**\OpenAPI\Client\Model\Transactions**](../Model/Transactions.md)| transactions |
+ **transactions** | [**\Numary\Ledger\Model\Transactions**](../Model/Transactions.md)| transactions |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TransactionListResponse**](../Model/TransactionListResponse.md)
+[**\Numary\Ledger\Model\TransactionListResponse**](../Model/TransactionListResponse.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ No authorization required
 ## `getTransaction()`
 
 ```php
-getTransaction($ledger, $txid): \OpenAPI\Client\Model\TransactionResponse
+getTransaction($ledger, $txid): \Numary\Ledger\Model\TransactionResponse
 ```
 
 Get Transaction
@@ -205,7 +205,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TransactionsApi(
+$apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TransactionResponse**](../Model/TransactionResponse.md)
+[**\Numary\Ledger\Model\TransactionResponse**](../Model/TransactionResponse.md)
 
 ### Authorization
 
@@ -248,7 +248,7 @@ No authorization required
 ## `listTransactions()`
 
 ```php
-listTransactions($ledger, $after, $reference, $account): \OpenAPI\Client\Model\TransactionCursorResponse
+listTransactions($ledger, $after, $reference, $account): \Numary\Ledger\Model\TransactionCursorResponse
 ```
 
 Get all Transactions
@@ -263,7 +263,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TransactionsApi(
+$apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TransactionCursorResponse**](../Model/TransactionCursorResponse.md)
+[**\Numary\Ledger\Model\TransactionCursorResponse**](../Model/TransactionCursorResponse.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TransactionsApi(
+$apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

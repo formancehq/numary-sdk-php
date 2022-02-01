@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**config** | [**\OpenAPI\Client\Model\Config**](Config.md) |  |
+**config** | [**\Numary\Ledger\Model\Config**](Config.md) |  |
 **server** | **string** |  |
 **version** | **string** |  |
 

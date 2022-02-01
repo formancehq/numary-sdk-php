@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **metadata** | **array<string,mixed>** |  | [optional]
-**postings** | [**\OpenAPI\Client\Model\Posting[]**](Posting.md) |  |
+**postings** | [**\Numary\Ledger\Model\Posting[]**](Posting.md) |  |
 **reference** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  |
 **txid** | **int** |  |

@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Numary\Ledger
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,19 +25,19 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace OpenAPI\Client\Test\Api;
+namespace Numary\Ledger\Test\Api;
 
-use OpenAPI\Client\Api\StatsApi;
-use \OpenAPI\Client\Configuration;
-use \OpenAPI\Client\ApiException;
-use \OpenAPI\Client\ObjectSerializer;
+use Numary\Ledger\Api\StatsApi;
+use \Numary\Ledger\Configuration;
+use \Numary\Ledger\ApiException;
+use \Numary\Ledger\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * StatsApiTest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Numary\Ledger
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

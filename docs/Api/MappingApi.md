@@ -1,4 +1,4 @@
-# OpenAPI\Client\MappingApi
+# Numary\Ledger\MappingApi
 
 All URIs are relative to http://localhost.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `getMapping()`
 
 ```php
-getMapping($ledger): \OpenAPI\Client\Model\MappingResponse
+getMapping($ledger): \Numary\Ledger\Model\MappingResponse
 ```
 
 Get mapping
@@ -26,7 +26,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MappingApi(
+$apiInstance = new Numary\Ledger\Api\MappingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MappingResponse**](../Model/MappingResponse.md)
+[**\Numary\Ledger\Model\MappingResponse**](../Model/MappingResponse.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 ## `updateMapping()`
 
 ```php
-updateMapping($ledger, $mapping): \OpenAPI\Client\Model\MappingResponse
+updateMapping($ledger, $mapping): \Numary\Ledger\Model\MappingResponse
 ```
 
 Put mapping
@@ -82,13 +82,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MappingApi(
+$apiInstance = new Numary\Ledger\Api\MappingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $ledger = 'ledger_example'; // string | ledger
-$mapping = new \OpenAPI\Client\Model\Mapping(); // \OpenAPI\Client\Model\Mapping | mapping
+$mapping = new \Numary\Ledger\Model\Mapping(); // \Numary\Ledger\Model\Mapping | mapping
 
 try {
     $result = $apiInstance->updateMapping($ledger, $mapping);
@@ -103,11 +103,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| ledger |
- **mapping** | [**\OpenAPI\Client\Model\Mapping**](../Model/Mapping.md)| mapping |
+ **mapping** | [**\Numary\Ledger\Model\Mapping**](../Model/Mapping.md)| mapping |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MappingResponse**](../Model/MappingResponse.md)
+[**\Numary\Ledger\Model\MappingResponse**](../Model/MappingResponse.md)
 
 ### Authorization
 

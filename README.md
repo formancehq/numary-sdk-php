@@ -50,7 +50,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+$apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -95,26 +95,27 @@ Class | Method | HTTP request | Description
 - [AccountCursorAllOf](docs/Model/AccountCursorAllOf.md)
 - [AccountCursorResponse](docs/Model/AccountCursorResponse.md)
 - [AccountResponse](docs/Model/AccountResponse.md)
-- [AccountResponseAllOf](docs/Model/AccountResponseAllOf.md)
 - [Config](docs/Model/Config.md)
 - [ConfigInfo](docs/Model/ConfigInfo.md)
 - [ConfigInfoResponse](docs/Model/ConfigInfoResponse.md)
-- [ConfigInfoResponseAllOf](docs/Model/ConfigInfoResponseAllOf.md)
 - [Contract](docs/Model/Contract.md)
+- [CreateTransactionResponse](docs/Model/CreateTransactionResponse.md)
 - [Cursor](docs/Model/Cursor.md)
 - [CursorResponse](docs/Model/CursorResponse.md)
+- [ErrorCode](docs/Model/ErrorCode.md)
+- [ErrorResponse](docs/Model/ErrorResponse.md)
 - [LedgerStorage](docs/Model/LedgerStorage.md)
 - [Mapping](docs/Model/Mapping.md)
 - [MappingResponse](docs/Model/MappingResponse.md)
-- [MappingResponseAllOf](docs/Model/MappingResponseAllOf.md)
 - [Posting](docs/Model/Posting.md)
 - [Script](docs/Model/Script.md)
 - [ScriptResult](docs/Model/ScriptResult.md)
-- [SingleObjectResponse](docs/Model/SingleObjectResponse.md)
 - [Stats](docs/Model/Stats.md)
 - [StatsResponse](docs/Model/StatsResponse.md)
-- [StatsResponseAllOf](docs/Model/StatsResponseAllOf.md)
 - [Transaction](docs/Model/Transaction.md)
+- [TransactionCommitError](docs/Model/TransactionCommitError.md)
+- [TransactionCommitErrorAllOf](docs/Model/TransactionCommitErrorAllOf.md)
+- [TransactionCommitErrorResponse](docs/Model/TransactionCommitErrorResponse.md)
 - [TransactionCursor](docs/Model/TransactionCursor.md)
 - [TransactionCursorAllOf](docs/Model/TransactionCursorAllOf.md)
 - [TransactionCursorResponse](docs/Model/TransactionCursorResponse.md)

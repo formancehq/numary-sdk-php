@@ -1,13 +1,13 @@
 <?php
 
-namespace OpenAPI\Client\Test\Api;
+namespace Numary\Ledger\Test\Api;
 
 use GuzzleHttp\Client;
-use OpenAPI\Client\Api\TransactionsApi;
-use \OpenAPI\Client\Configuration;
-use \OpenAPI\Client\ApiException;
-use OpenAPI\Client\Model\TransactionData;
-use \OpenAPI\Client\ObjectSerializer;
+use Numary\Ledger\Api\TransactionsApi;
+use \Numary\Ledger\Configuration;
+use \Numary\Ledger\ApiException;
+use Numary\Ledger\Model\TransactionData;
+use \Numary\Ledger\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 abstract class ApiTest extends TestCase
