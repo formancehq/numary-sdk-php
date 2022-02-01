@@ -2,6 +2,7 @@
 .php_cs
 .travis.yml
 README.md
+Taskfile.yml
 composer.json
 docs/Api/AccountsApi.md
 docs/Api/MappingApi.md
