@@ -7,8 +7,7 @@ use GuzzleHttp\Client;
 class TokenFetcher
 {
 
-    static $endpointStaging = "https://api.staging.numary.cloud/auth/authenticate/tokens";
-    static $endpointProd = "https://api.numary.cloud/auth/authenticate/tokens";
+    static $endpoint = "https://api.numary.cloud/auth/authenticate/tokens";
 
     protected $url = '';
     protected $token = '';

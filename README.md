@@ -154,10 +154,11 @@ use Numary\Ledger\Api\Configuration;
 use Numary\Ledger\Cloud\TokenFetcher;
 use GuzzleHttp\Client;
 
-$tokenFetcher = new TokenFetcher(TokenFetcher::$endpointProd, "API KEY");
+$tokenFetcher = new TokenFetcher(TokenFetcher::$endpoint, "API KEY");
 $token = $tokenFetcher->fetchToken();
 $config = new Configuration();
 $config->setAccessToken($token);
+$config->setHost("https://api.numary.cloud/ledger");
 $transactionApi = new TransactionsApi(new Client(), $config);
 ```
 
