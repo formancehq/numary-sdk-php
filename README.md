@@ -49,11 +49,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
+// Configure HTTP basic authorization: basicAuth
+$config = Numary\Ledger\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer authorization: cloudToken
+$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $ledger = 'ledger_example'; // string | ledger
 $account_id = 'account_id_example'; // string | accountId
@@ -125,7 +134,34 @@ Class | Method | HTTP request | Description
 - [Transactions](docs/Model/Transactions.md)
 
 ## Authorization
-All endpoints do not require authorization.
+
+
+### basicAuth
+
+- **Type**: HTTP basic authentication
+
+
+
+### cloudToken
+
+- **Type**: Bearer authentication
+
+Library provide utility to fetch access token from Numary authorization server
+
+```php
+use Numary\Ledger\Api\TransactionsApi;
+use Numary\Ledger\Api\Configuration;
+use Numary\Ledger\Cloud\TokenFetcher;
+use GuzzleHttp\Client;
+
+$tokenFetcher = new TokenFetcher(TokenFetcher::$endpointProd, "API KEY");
+$token = $tokenFetcher->fetchToken();
+$config = new Configuration();
+$config->setAccessToken($token);
+$transactionApi = new TransactionsApi(new Client(), $config);
+```
+
+
 ## Tests
 
 To run the tests, use:
