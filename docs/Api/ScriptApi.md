@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `runScript()`
 
 ```php
-runScript($ledger, $script): \Numary\Ledger\Model\ScriptResult
+runScript($ledger, $script, $preview): \Numary\Ledger\Model\ScriptResult
 ```
 
 Execute Numscript
@@ -41,9 +41,10 @@ $apiInstance = new Numary\Ledger\Api\ScriptApi(
 );
 $ledger = 'ledger_example'; // string | ledger
 $script = new \Numary\Ledger\Model\Script(); // \Numary\Ledger\Model\Script | script
+$preview = True; // bool | Preview mode
 
 try {
-    $result = $apiInstance->runScript($ledger, $script);
+    $result = $apiInstance->runScript($ledger, $script, $preview);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScriptApi->runScript: ', $e->getMessage(), PHP_EOL;
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| ledger |
  **script** | [**\Numary\Ledger\Model\Script**](../Model/Script.md)| script |
+ **preview** | **bool**| Preview mode | [optional]
 
 ### Return type
 

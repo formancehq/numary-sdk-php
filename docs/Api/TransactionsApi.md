@@ -83,7 +83,7 @@ void (empty response body)
 ## `createTransaction()`
 
 ```php
-createTransaction($ledger, $transaction_data): \Numary\Ledger\Model\CreateTransactionResponse
+createTransaction($ledger, $transaction_data, $preview): \Numary\Ledger\Model\CreateTransactionResponse
 ```
 
 Create Transaction
@@ -114,9 +114,10 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
 );
 $ledger = 'ledger_example'; // string | ledger
 $transaction_data = new \Numary\Ledger\Model\TransactionData(); // \Numary\Ledger\Model\TransactionData | transaction
+$preview = 'preview_example'; // string | Preview mode
 
 try {
-    $result = $apiInstance->createTransaction($ledger, $transaction_data);
+    $result = $apiInstance->createTransaction($ledger, $transaction_data, $preview);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->createTransaction: ', $e->getMessage(), PHP_EOL;
@@ -129,6 +130,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| ledger |
  **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)| transaction |
+ **preview** | **string**| Preview mode | [optional]
 
 ### Return type
 
@@ -355,7 +357,7 @@ Name | Type | Description  | Notes
 ## `revertTransaction()`
 
 ```php
-revertTransaction($ledger, $txid)
+revertTransaction($ledger, $txid): \Numary\Ledger\Model\TransactionResponse
 ```
 
 Revert Transaction
@@ -388,7 +390,8 @@ $ledger = 'ledger_example'; // string | ledger
 $txid = 56; // int | txid
 
 try {
-    $apiInstance->revertTransaction($ledger, $txid);
+    $result = $apiInstance->revertTransaction($ledger, $txid);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->revertTransaction: ', $e->getMessage(), PHP_EOL;
 }
@@ -403,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Numary\Ledger\Model\TransactionResponse**](../Model/TransactionResponse.md)
 
 ### Authorization
 
@@ -412,7 +415,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
