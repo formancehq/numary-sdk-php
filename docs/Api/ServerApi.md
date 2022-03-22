@@ -29,9 +29,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\ServerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -58,7 +55,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 

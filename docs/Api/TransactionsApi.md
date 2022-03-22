@@ -34,9 +34,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -69,7 +66,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -102,9 +99,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -114,7 +108,7 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
 );
 $ledger = 'ledger_example'; // string | ledger
 $transaction_data = new \Numary\Ledger\Model\TransactionData(); // \Numary\Ledger\Model\TransactionData | transaction
-$preview = 'preview_example'; // string | Preview mode
+$preview = True; // bool | Preview mode
 
 try {
     $result = $apiInstance->createTransaction($ledger, $transaction_data, $preview);
@@ -130,7 +124,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| ledger |
  **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)| transaction |
- **preview** | **string**| Preview mode | [optional]
+ **preview** | **bool**| Preview mode | [optional]
 
 ### Return type
 
@@ -138,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -171,9 +165,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -205,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -238,9 +229,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -272,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -304,9 +292,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
@@ -343,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -376,9 +361,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -410,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 

@@ -30,9 +30,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\MappingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -62,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -95,9 +92,6 @@ $config = Numary\Ledger\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
-// Configure Bearer authorization: cloudToken
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Numary\Ledger\Api\MappingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -129,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cloudToken](../../README.md#cloudToken)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
