@@ -33,9 +33,6 @@ docs/Model/ScriptResult.md
 docs/Model/Stats.md
 docs/Model/StatsResponse.md
 docs/Model/Transaction.md
-docs/Model/TransactionCommitError.md
-docs/Model/TransactionCommitErrorAllOf.md
-docs/Model/TransactionCommitErrorResponse.md
 docs/Model/TransactionCursor.md
 docs/Model/TransactionCursorAllOf.md
 docs/Model/TransactionCursorResponse.md
@@ -76,9 +73,6 @@ lib/Model/ScriptResult.php
 lib/Model/Stats.php
 lib/Model/StatsResponse.php
 lib/Model/Transaction.php
-lib/Model/TransactionCommitError.php
-lib/Model/TransactionCommitErrorAllOf.php
-lib/Model/TransactionCommitErrorResponse.php
 lib/Model/TransactionCursor.php
 lib/Model/TransactionCursorAllOf.php
 lib/Model/TransactionCursorResponse.php

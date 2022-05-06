@@ -5,6 +5,7 @@ All URIs are relative to http://localhost.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addMetadataOnTransaction()**](TransactionsApi.md#addMetadataOnTransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set Transaction Metadata
+[**countTransactions()**](TransactionsApi.md#countTransactions) | **HEAD** /{ledger}/transactions | Count transactions
 [**createTransaction()**](TransactionsApi.md#createTransaction) | **POST** /{ledger}/transactions | Create Transaction
 [**createTransactions()**](TransactionsApi.md#createTransactions) | **POST** /{ledger}/transactions/batch | Create Transactions Batch
 [**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /{ledger}/transactions/{txid} | Get Transaction
@@ -71,6 +72,77 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `countTransactions()`
+
+```php
+countTransactions($ledger, $after, $reference, $account, $source, $destination)
+```
+
+Count transactions
+
+Count transactions mathing given criteria
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = Numary\Ledger\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Numary\Ledger\Api\TransactionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ledger = 'ledger_example'; // string | ledger
+$after = 'after_example'; // string | pagination cursor, will return transactions after given txid (in descending order)
+$reference = 'reference_example'; // string | find transactions by reference field
+$account = 'account_example'; // string | find transactions with postings involving given account, either as source or destination
+$source = 'source_example'; // string | find transactions with postings involving given account at source
+$destination = 'destination_example'; // string | find transactions with postings involving given account at destination
+
+try {
+    $apiInstance->countTransactions($ledger, $after, $reference, $account, $source, $destination);
+} catch (Exception $e) {
+    echo 'Exception when calling TransactionsApi->countTransactions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ledger** | **string**| ledger |
+ **after** | **string**| pagination cursor, will return transactions after given txid (in descending order) | [optional]
+ **reference** | **string**| find transactions by reference field | [optional]
+ **account** | **string**| find transactions with postings involving given account, either as source or destination | [optional]
+ **source** | **string**| find transactions with postings involving given account at source | [optional]
+ **destination** | **string**| find transactions with postings involving given account at destination | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -274,7 +346,7 @@ Name | Type | Description  | Notes
 ## `listTransactions()`
 
 ```php
-listTransactions($ledger, $after, $reference, $account): \Numary\Ledger\Model\TransactionCursorResponse
+listTransactions($ledger, $after, $reference, $account, $source, $destination): \Numary\Ledger\Model\TransactionCursorResponse
 ```
 
 Get all Transactions
@@ -304,9 +376,11 @@ $ledger = 'ledger_example'; // string | ledger
 $after = 'after_example'; // string | pagination cursor, will return transactions after given txid (in descending order)
 $reference = 'reference_example'; // string | find transactions by reference field
 $account = 'account_example'; // string | find transactions with postings involving given account, either as source or destination
+$source = 'source_example'; // string | find transactions with postings involving given account at source
+$destination = 'destination_example'; // string | find transactions with postings involving given account at destination
 
 try {
-    $result = $apiInstance->listTransactions($ledger, $after, $reference, $account);
+    $result = $apiInstance->listTransactions($ledger, $after, $reference, $account, $source, $destination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->listTransactions: ', $e->getMessage(), PHP_EOL;
@@ -321,6 +395,8 @@ Name | Type | Description  | Notes
  **after** | **string**| pagination cursor, will return transactions after given txid (in descending order) | [optional]
  **reference** | **string**| find transactions by reference field | [optional]
  **account** | **string**| find transactions with postings involving given account, either as source or destination | [optional]
+ **source** | **string**| find transactions with postings involving given account at source | [optional]
+ **destination** | **string**| find transactions with postings involving given account at destination | [optional]
 
 ### Return type
 

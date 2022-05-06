@@ -80,6 +80,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountsApi* | [**addMetadataToAccount**](docs/Api/AccountsApi.md#addmetadatatoaccount) | **POST** /{ledger}/accounts/{accountId}/metadata | Add metadata to account
+*AccountsApi* | [**countAccounts**](docs/Api/AccountsApi.md#countaccounts) | **HEAD** /{ledger}/accounts | Count accounts
 *AccountsApi* | [**getAccount**](docs/Api/AccountsApi.md#getaccount) | **GET** /{ledger}/accounts/{accountId} | Get account by address
 *AccountsApi* | [**listAccounts**](docs/Api/AccountsApi.md#listaccounts) | **GET** /{ledger}/accounts | List all accounts
 *MappingApi* | [**getMapping**](docs/Api/MappingApi.md#getmapping) | **GET** /{ledger}/mapping | Get mapping
@@ -88,6 +89,7 @@ Class | Method | HTTP request | Description
 *ServerApi* | [**getInfo**](docs/Api/ServerApi.md#getinfo) | **GET** /_info | Server Info
 *StatsApi* | [**readStats**](docs/Api/StatsApi.md#readstats) | **GET** /{ledger}/stats | Get Stats
 *TransactionsApi* | [**addMetadataOnTransaction**](docs/Api/TransactionsApi.md#addmetadataontransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set Transaction Metadata
+*TransactionsApi* | [**countTransactions**](docs/Api/TransactionsApi.md#counttransactions) | **HEAD** /{ledger}/transactions | Count transactions
 *TransactionsApi* | [**createTransaction**](docs/Api/TransactionsApi.md#createtransaction) | **POST** /{ledger}/transactions | Create Transaction
 *TransactionsApi* | [**createTransactions**](docs/Api/TransactionsApi.md#createtransactions) | **POST** /{ledger}/transactions/batch | Create Transactions Batch
 *TransactionsApi* | [**getTransaction**](docs/Api/TransactionsApi.md#gettransaction) | **GET** /{ledger}/transactions/{txid} | Get Transaction
@@ -119,9 +121,6 @@ Class | Method | HTTP request | Description
 - [Stats](docs/Model/Stats.md)
 - [StatsResponse](docs/Model/StatsResponse.md)
 - [Transaction](docs/Model/Transaction.md)
-- [TransactionCommitError](docs/Model/TransactionCommitError.md)
-- [TransactionCommitErrorAllOf](docs/Model/TransactionCommitErrorAllOf.md)
-- [TransactionCommitErrorResponse](docs/Model/TransactionCommitErrorResponse.md)
 - [TransactionCursor](docs/Model/TransactionCursor.md)
 - [TransactionCursorAllOf](docs/Model/TransactionCursorAllOf.md)
 - [TransactionCursorResponse](docs/Model/TransactionCursorResponse.md)
