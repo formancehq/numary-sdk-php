@@ -4,13 +4,13 @@ All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addMetadataOnTransaction()**](TransactionsApi.md#addMetadataOnTransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set Transaction Metadata
-[**countTransactions()**](TransactionsApi.md#countTransactions) | **HEAD** /{ledger}/transactions | Count transactions
-[**createTransaction()**](TransactionsApi.md#createTransaction) | **POST** /{ledger}/transactions | Create Transaction
-[**createTransactions()**](TransactionsApi.md#createTransactions) | **POST** /{ledger}/transactions/batch | Create Transactions Batch
-[**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /{ledger}/transactions/{txid} | Get Transaction
-[**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /{ledger}/transactions | Get all Transactions
-[**revertTransaction()**](TransactionsApi.md#revertTransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert Transaction
+[**addMetadataOnTransaction()**](TransactionsApi.md#addMetadataOnTransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set the metadata of a transaction by its ID.
+[**countTransactions()**](TransactionsApi.md#countTransactions) | **HEAD** /{ledger}/transactions | Count the transactions from a ledger.
+[**createTransaction()**](TransactionsApi.md#createTransaction) | **POST** /{ledger}/transactions | Create a new transaction to a ledger.
+[**createTransactions()**](TransactionsApi.md#createTransactions) | **POST** /{ledger}/transactions/batch | Create a new batch of transactions to a ledger.
+[**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /{ledger}/transactions/{txid} | Get transaction from a ledger by its ID.
+[**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /{ledger}/transactions | List transactions from a ledger.
+[**revertTransaction()**](TransactionsApi.md#revertTransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert a ledger transaction by its ID.
 
 
 ## `addMetadataOnTransaction()`
@@ -19,9 +19,7 @@ Method | HTTP request | Description
 addMetadataOnTransaction($ledger, $txid, $request_body)
 ```
 
-Set Transaction Metadata
-
-Set a new metadata to a ledger transaction by transaction id
+Set the metadata of a transaction by its ID.
 
 ### Example
 
@@ -42,8 +40,8 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$txid = 56; // int | txid
+$ledger = ledger001; // string | Name of the ledger.
+$txid = 1234; // int | Transaction ID.
 $request_body = NULL; // array<string,mixed> | metadata
 
 try {
@@ -57,8 +55,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **txid** | **int**| txid |
+ **ledger** | **string**| Name of the ledger. |
+ **txid** | **int**| Transaction ID. |
  **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata | [optional]
 
 ### Return type
@@ -81,12 +79,10 @@ void (empty response body)
 ## `countTransactions()`
 
 ```php
-countTransactions($ledger, $after, $reference, $account, $source, $destination)
+countTransactions($ledger, $reference, $account, $source, $destination)
 ```
 
-Count transactions
-
-Count transactions mathing given criteria
+Count the transactions from a ledger.
 
 ### Example
 
@@ -107,15 +103,14 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$after = 'after_example'; // string | pagination cursor, will return transactions after given txid (in descending order)
-$reference = 'reference_example'; // string | find transactions by reference field
-$account = 'account_example'; // string | find transactions with postings involving given account, either as source or destination
-$source = 'source_example'; // string | find transactions with postings involving given account at source
-$destination = 'destination_example'; // string | find transactions with postings involving given account at destination
+$ledger = ledger001; // string | Name of the ledger.
+$reference = ref:001; // string | Filter transactions by reference field.
+$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination.
+$source = users:001; // string | Filter transactions with postings involving given account at source.
+$destination = users:001; // string | Filter transactions with postings involving given account at destination.
 
 try {
-    $apiInstance->countTransactions($ledger, $after, $reference, $account, $source, $destination);
+    $apiInstance->countTransactions($ledger, $reference, $account, $source, $destination);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->countTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -125,12 +120,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **after** | **string**| pagination cursor, will return transactions after given txid (in descending order) | [optional]
- **reference** | **string**| find transactions by reference field | [optional]
- **account** | **string**| find transactions with postings involving given account, either as source or destination | [optional]
- **source** | **string**| find transactions with postings involving given account at source | [optional]
- **destination** | **string**| find transactions with postings involving given account at destination | [optional]
+ **ledger** | **string**| Name of the ledger. |
+ **reference** | **string**| Filter transactions by reference field. | [optional]
+ **account** | **string**| Filter transactions with postings involving given account, either as source or destination. | [optional]
+ **source** | **string**| Filter transactions with postings involving given account at source. | [optional]
+ **destination** | **string**| Filter transactions with postings involving given account at destination. | [optional]
 
 ### Return type
 
@@ -155,9 +149,7 @@ void (empty response body)
 createTransaction($ledger, $transaction_data, $preview): \Numary\Ledger\Model\CreateTransactionResponse
 ```
 
-Create Transaction
-
-Create a new ledger transaction Commit a new transaction to the ledger
+Create a new transaction to a ledger.
 
 ### Example
 
@@ -178,9 +170,9 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$transaction_data = new \Numary\Ledger\Model\TransactionData(); // \Numary\Ledger\Model\TransactionData | transaction
-$preview = True; // bool | Preview mode
+$ledger = ledger001; // string | Name of the ledger.
+$transaction_data = new \Numary\Ledger\Model\TransactionData(); // \Numary\Ledger\Model\TransactionData
+$preview = true; // bool | Set the preview mode. Preview mode doesn't add the logs to the database or publish a message to the message broker.
 
 try {
     $result = $apiInstance->createTransaction($ledger, $transaction_data, $preview);
@@ -194,9 +186,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)| transaction |
- **preview** | **bool**| Preview mode | [optional]
+ **ledger** | **string**| Name of the ledger. |
+ **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)|  |
+ **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional]
 
 ### Return type
 
@@ -218,12 +210,10 @@ Name | Type | Description  | Notes
 ## `createTransactions()`
 
 ```php
-createTransactions($ledger, $transactions): \Numary\Ledger\Model\TransactionListResponse
+createTransactions($ledger, $transactions): \Numary\Ledger\Model\CreateTransactions200Response
 ```
 
-Create Transactions Batch
-
-Create a new ledger transactions batch Commit a batch of new transactions to the ledger
+Create a new batch of transactions to a ledger.
 
 ### Example
 
@@ -244,8 +234,8 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$transactions = new \Numary\Ledger\Model\Transactions(); // \Numary\Ledger\Model\Transactions | transactions
+$ledger = ledger001; // string | Name of the ledger.
+$transactions = new \Numary\Ledger\Model\Transactions(); // \Numary\Ledger\Model\Transactions
 
 try {
     $result = $apiInstance->createTransactions($ledger, $transactions);
@@ -259,12 +249,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **transactions** | [**\Numary\Ledger\Model\Transactions**](../Model/Transactions.md)| transactions |
+ **ledger** | **string**| Name of the ledger. |
+ **transactions** | [**\Numary\Ledger\Model\Transactions**](../Model/Transactions.md)|  |
 
 ### Return type
 
-[**\Numary\Ledger\Model\TransactionListResponse**](../Model/TransactionListResponse.md)
+[**\Numary\Ledger\Model\CreateTransactions200Response**](../Model/CreateTransactions200Response.md)
 
 ### Authorization
 
@@ -285,9 +275,7 @@ Name | Type | Description  | Notes
 getTransaction($ledger, $txid): \Numary\Ledger\Model\TransactionResponse
 ```
 
-Get Transaction
-
-Get transaction by transaction id
+Get transaction from a ledger by its ID.
 
 ### Example
 
@@ -308,8 +296,8 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$txid = 56; // int | txid
+$ledger = ledger001; // string | Name of the ledger.
+$txid = 1234; // int | Transaction ID.
 
 try {
     $result = $apiInstance->getTransaction($ledger, $txid);
@@ -323,8 +311,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **txid** | **int**| txid |
+ **ledger** | **string**| Name of the ledger. |
+ **txid** | **int**| Transaction ID. |
 
 ### Return type
 
@@ -346,12 +334,12 @@ Name | Type | Description  | Notes
 ## `listTransactions()`
 
 ```php
-listTransactions($ledger, $after, $reference, $account, $source, $destination): \Numary\Ledger\Model\TransactionCursorResponse
+listTransactions($ledger, $after, $reference, $account, $source, $destination, $start_time, $end_time): \Numary\Ledger\Model\ListTransactions200Response
 ```
 
-Get all Transactions
+List transactions from a ledger.
 
-Get all ledger transactions
+List transactions from a ledger, sorted by txid in descending order.
 
 ### Example
 
@@ -372,15 +360,17 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$after = 'after_example'; // string | pagination cursor, will return transactions after given txid (in descending order)
-$reference = 'reference_example'; // string | find transactions by reference field
-$account = 'account_example'; // string | find transactions with postings involving given account, either as source or destination
-$source = 'source_example'; // string | find transactions with postings involving given account at source
-$destination = 'destination_example'; // string | find transactions with postings involving given account at destination
+$ledger = ledger001; // string | Name of the ledger.
+$after = 1234; // string | Pagination cursor, will return transactions after given txid (in descending order).
+$reference = ref:001; // string | Find transactions by reference field.
+$account = users:001; // string | Find transactions with postings involving given account, either as source or destination.
+$source = users:001; // string | Find transactions with postings involving given account at source.
+$destination = users:001; // string | Find transactions with postings involving given account at destination.
+$start_time = 'start_time_example'; // string | Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute).
+$end_time = 'end_time_example'; // string | Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute).
 
 try {
-    $result = $apiInstance->listTransactions($ledger, $after, $reference, $account, $source, $destination);
+    $result = $apiInstance->listTransactions($ledger, $after, $reference, $account, $source, $destination, $start_time, $end_time);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->listTransactions: ', $e->getMessage(), PHP_EOL;
@@ -391,16 +381,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **after** | **string**| pagination cursor, will return transactions after given txid (in descending order) | [optional]
- **reference** | **string**| find transactions by reference field | [optional]
- **account** | **string**| find transactions with postings involving given account, either as source or destination | [optional]
- **source** | **string**| find transactions with postings involving given account at source | [optional]
- **destination** | **string**| find transactions with postings involving given account at destination | [optional]
+ **ledger** | **string**| Name of the ledger. |
+ **after** | **string**| Pagination cursor, will return transactions after given txid (in descending order). | [optional]
+ **reference** | **string**| Find transactions by reference field. | [optional]
+ **account** | **string**| Find transactions with postings involving given account, either as source or destination. | [optional]
+ **source** | **string**| Find transactions with postings involving given account at source. | [optional]
+ **destination** | **string**| Find transactions with postings involving given account at destination. | [optional]
+ **start_time** | **string**| Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute). | [optional]
+ **end_time** | **string**| Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute). | [optional]
 
 ### Return type
 
-[**\Numary\Ledger\Model\TransactionCursorResponse**](../Model/TransactionCursorResponse.md)
+[**\Numary\Ledger\Model\ListTransactions200Response**](../Model/ListTransactions200Response.md)
 
 ### Authorization
 
@@ -421,9 +413,7 @@ Name | Type | Description  | Notes
 revertTransaction($ledger, $txid): \Numary\Ledger\Model\TransactionResponse
 ```
 
-Revert Transaction
-
-Revert a ledger transaction by transaction id
+Revert a ledger transaction by its ID.
 
 ### Example
 
@@ -444,8 +434,8 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$txid = 56; // int | txid
+$ledger = ledger001; // string | Name of the ledger.
+$txid = 1234; // int | Transaction ID.
 
 try {
     $result = $apiInstance->revertTransaction($ledger, $txid);
@@ -459,8 +449,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **txid** | **int**| txid |
+ **ledger** | **string**| Name of the ledger. |
+ **txid** | **int**| Transaction ID. |
 
 ### Return type
 

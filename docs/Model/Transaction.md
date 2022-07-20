@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metadata** | **array<string,mixed>** |  | [optional]
 **postings** | [**\Numary\Ledger\Model\Posting[]**](Posting.md) |  |
 **reference** | **string** |  | [optional]
+**metadata** | **array<string,mixed>** |  | [optional]
 **timestamp** | **\DateTime** |  |
 **txid** | **int** |  |
 

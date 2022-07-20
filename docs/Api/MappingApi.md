@@ -4,8 +4,8 @@ All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getMapping()**](MappingApi.md#getMapping) | **GET** /{ledger}/mapping | Get mapping
-[**updateMapping()**](MappingApi.md#updateMapping) | **PUT** /{ledger}/mapping | Put mapping
+[**getMapping()**](MappingApi.md#getMapping) | **GET** /{ledger}/mapping | Get the mapping of a ledger.
+[**updateMapping()**](MappingApi.md#updateMapping) | **PUT** /{ledger}/mapping | Update the mapping of a ledger.
 
 
 ## `getMapping()`
@@ -14,9 +14,7 @@ Method | HTTP request | Description
 getMapping($ledger): \Numary\Ledger\Model\MappingResponse
 ```
 
-Get mapping
-
-Get ledger mapping
+Get the mapping of a ledger.
 
 ### Example
 
@@ -37,7 +35,7 @@ $apiInstance = new Numary\Ledger\Api\MappingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
+$ledger = ledger001; // string | Name of the ledger.
 
 try {
     $result = $apiInstance->getMapping($ledger);
@@ -51,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
+ **ledger** | **string**| Name of the ledger. |
 
 ### Return type
 
@@ -76,9 +74,7 @@ Name | Type | Description  | Notes
 updateMapping($ledger, $mapping): \Numary\Ledger\Model\MappingResponse
 ```
 
-Put mapping
-
-Update ledger mapping
+Update the mapping of a ledger.
 
 ### Example
 
@@ -99,8 +95,8 @@ $apiInstance = new Numary\Ledger\Api\MappingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$mapping = new \Numary\Ledger\Model\Mapping(); // \Numary\Ledger\Model\Mapping | mapping
+$ledger = ledger001; // string | Name of the ledger.
+$mapping = new \Numary\Ledger\Model\Mapping(); // \Numary\Ledger\Model\Mapping
 
 try {
     $result = $apiInstance->updateMapping($ledger, $mapping);
@@ -114,8 +110,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **mapping** | [**\Numary\Ledger\Model\Mapping**](../Model/Mapping.md)| mapping |
+ **ledger** | **string**| Name of the ledger. |
+ **mapping** | [**\Numary\Ledger\Model\Mapping**](../Model/Mapping.md)|  |
 
 ### Return type
 

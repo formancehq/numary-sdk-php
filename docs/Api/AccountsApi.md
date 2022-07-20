@@ -4,19 +4,19 @@ All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addMetadataToAccount()**](AccountsApi.md#addMetadataToAccount) | **POST** /{ledger}/accounts/{accountId}/metadata | Add metadata to account
-[**countAccounts()**](AccountsApi.md#countAccounts) | **HEAD** /{ledger}/accounts | Count accounts
-[**getAccount()**](AccountsApi.md#getAccount) | **GET** /{ledger}/accounts/{accountId} | Get account by address
-[**listAccounts()**](AccountsApi.md#listAccounts) | **GET** /{ledger}/accounts | List all accounts
+[**addMetadataToAccount()**](AccountsApi.md#addMetadataToAccount) | **POST** /{ledger}/accounts/{address}/metadata | Add metadata to an account.
+[**countAccounts()**](AccountsApi.md#countAccounts) | **HEAD** /{ledger}/accounts | Count the accounts from a ledger.
+[**getAccount()**](AccountsApi.md#getAccount) | **GET** /{ledger}/accounts/{address} | Get account by its address.
+[**listAccounts()**](AccountsApi.md#listAccounts) | **GET** /{ledger}/accounts | List accounts from a ledger.
 
 
 ## `addMetadataToAccount()`
 
 ```php
-addMetadataToAccount($ledger, $account_id, $request_body)
+addMetadataToAccount($ledger, $address, $request_body)
 ```
 
-Add metadata to account
+Add metadata to an account.
 
 ### Example
 
@@ -37,12 +37,12 @@ $apiInstance = new Numary\Ledger\Api\AccountsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$account_id = 'account_id_example'; // string | accountId
+$ledger = ledger001; // string | Name of the ledger.
+$address = users:001; // string | Exact address of the account.
 $request_body = NULL; // array<string,mixed> | metadata
 
 try {
-    $apiInstance->addMetadataToAccount($ledger, $account_id, $request_body);
+    $apiInstance->addMetadataToAccount($ledger, $address, $request_body);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->addMetadataToAccount: ', $e->getMessage(), PHP_EOL;
 }
@@ -52,8 +52,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **account_id** | **string**| accountId |
+ **ledger** | **string**| Name of the ledger. |
+ **address** | **string**| Exact address of the account. |
  **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata |
 
 ### Return type
@@ -76,10 +76,10 @@ void (empty response body)
 ## `countAccounts()`
 
 ```php
-countAccounts($ledger, $after, $address, $metadata)
+countAccounts($ledger, $address, $metadata)
 ```
 
-Count accounts
+Count the accounts from a ledger.
 
 ### Example
 
@@ -100,13 +100,12 @@ $apiInstance = new Numary\Ledger\Api\AccountsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$after = 'after_example'; // string | pagination cursor, will return accounts after given address (in descending order)
-$address = 'address_example'; // string | account address
-$metadata = array('key' => 'metadata_example'); // array<string,string> | metadata
+$ledger = ledger001; // string | Name of the ledger.
+$address = users:.+; // string | Filter accounts by address pattern (regular expression placed between ^ and $).
+$metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
-    $apiInstance->countAccounts($ledger, $after, $address, $metadata);
+    $apiInstance->countAccounts($ledger, $address, $metadata);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->countAccounts: ', $e->getMessage(), PHP_EOL;
 }
@@ -116,10 +115,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **after** | **string**| pagination cursor, will return accounts after given address (in descending order) | [optional]
- **address** | **string**| account address | [optional]
- **metadata** | [**array<string,string>**](../Model/string.md)| metadata | [optional]
+ **ledger** | **string**| Name of the ledger. |
+ **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional]
+ **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
 
 ### Return type
 
@@ -141,10 +139,10 @@ void (empty response body)
 ## `getAccount()`
 
 ```php
-getAccount($ledger, $account_id): \Numary\Ledger\Model\AccountResponse
+getAccount($ledger, $address): \Numary\Ledger\Model\GetAccount200Response
 ```
 
-Get account by address
+Get account by its address.
 
 ### Example
 
@@ -165,11 +163,11 @@ $apiInstance = new Numary\Ledger\Api\AccountsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$account_id = 'account_id_example'; // string | accountId
+$ledger = ledger001; // string | Name of the ledger.
+$address = users:001; // string | Exact address of the account.
 
 try {
-    $result = $apiInstance->getAccount($ledger, $account_id);
+    $result = $apiInstance->getAccount($ledger, $address);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccount: ', $e->getMessage(), PHP_EOL;
@@ -180,12 +178,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **account_id** | **string**| accountId |
+ **ledger** | **string**| Name of the ledger. |
+ **address** | **string**| Exact address of the account. |
 
 ### Return type
 
-[**\Numary\Ledger\Model\AccountResponse**](../Model/AccountResponse.md)
+[**\Numary\Ledger\Model\GetAccount200Response**](../Model/GetAccount200Response.md)
 
 ### Authorization
 
@@ -203,10 +201,12 @@ Name | Type | Description  | Notes
 ## `listAccounts()`
 
 ```php
-listAccounts($ledger, $after, $address, $metadata): \Numary\Ledger\Model\AccountCursorResponse
+listAccounts($ledger, $after, $address, $metadata): \Numary\Ledger\Model\ListAccounts200Response
 ```
 
-List all accounts
+List accounts from a ledger.
+
+List accounts from a ledger, sorted by address in descending order.
 
 ### Example
 
@@ -227,10 +227,10 @@ $apiInstance = new Numary\Ledger\Api\AccountsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$after = 'after_example'; // string | pagination cursor, will return accounts after given address (in descending order)
-$address = 'address_example'; // string | account address
-$metadata = array('key' => 'metadata_example'); // array<string,string> | account address
+$ledger = ledger001; // string | Name of the ledger.
+$after = users:003; // string | Pagination cursor, will return accounts after given address, in descending order.
+$address = users:.+; // string | Filter accounts by address pattern (regular expression placed between ^ and $).
+$metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
     $result = $apiInstance->listAccounts($ledger, $after, $address, $metadata);
@@ -244,14 +244,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **after** | **string**| pagination cursor, will return accounts after given address (in descending order) | [optional]
- **address** | **string**| account address | [optional]
- **metadata** | [**array<string,string>**](../Model/string.md)| account address | [optional]
+ **ledger** | **string**| Name of the ledger. |
+ **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional]
+ **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional]
+ **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
 
 ### Return type
 
-[**\Numary\Ledger\Model\AccountCursorResponse**](../Model/AccountCursorResponse.md)
+[**\Numary\Ledger\Model\ListAccounts200Response**](../Model/ListAccounts200Response.md)
 
 ### Authorization
 

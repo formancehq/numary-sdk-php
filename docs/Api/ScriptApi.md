@@ -4,7 +4,7 @@ All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**runScript()**](ScriptApi.md#runScript) | **POST** /{ledger}/script | Execute Numscript
+[**runScript()**](ScriptApi.md#runScript) | **POST** /{ledger}/script | Execute a Numscript.
 
 
 ## `runScript()`
@@ -13,9 +13,7 @@ Method | HTTP request | Description
 runScript($ledger, $script, $preview): \Numary\Ledger\Model\ScriptResult
 ```
 
-Execute Numscript
-
-Execute a Numscript and create the transaction if any
+Execute a Numscript.
 
 ### Example
 
@@ -36,9 +34,9 @@ $apiInstance = new Numary\Ledger\Api\ScriptApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$script = new \Numary\Ledger\Model\Script(); // \Numary\Ledger\Model\Script | script
-$preview = True; // bool | Preview mode
+$ledger = ledger001; // string | Name of the ledger.
+$script = new \Numary\Ledger\Model\Script(); // \Numary\Ledger\Model\Script
+$preview = true; // bool | Set the preview mode. Preview mode doesn't add the logs to the database or publish a message to the message broker.
 
 try {
     $result = $apiInstance->runScript($ledger, $script, $preview);
@@ -52,9 +50,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
- **script** | [**\Numary\Ledger\Model\Script**](../Model/Script.md)| script |
- **preview** | **bool**| Preview mode | [optional]
+ **ledger** | **string**| Name of the ledger. |
+ **script** | [**\Numary\Ledger\Model\Script**](../Model/Script.md)|  |
+ **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional]
 
 ### Return type
 

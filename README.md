@@ -61,12 +61,12 @@ $apiInstance = new Numary\Ledger\Api\AccountsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
-$account_id = 'account_id_example'; // string | accountId
+$ledger = ledger001; // string | Name of the ledger.
+$address = users:001; // string | Exact address of the account.
 $request_body = NULL; // array<string,mixed> | metadata
 
 try {
-    $apiInstance->addMetadataToAccount($ledger, $account_id, $request_body);
+    $apiInstance->addMetadataToAccount($ledger, $address, $request_body);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->addMetadataToAccount: ', $e->getMessage(), PHP_EOL;
 }
@@ -79,40 +79,45 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountsApi* | [**addMetadataToAccount**](docs/Api/AccountsApi.md#addmetadatatoaccount) | **POST** /{ledger}/accounts/{accountId}/metadata | Add metadata to account
-*AccountsApi* | [**countAccounts**](docs/Api/AccountsApi.md#countaccounts) | **HEAD** /{ledger}/accounts | Count accounts
-*AccountsApi* | [**getAccount**](docs/Api/AccountsApi.md#getaccount) | **GET** /{ledger}/accounts/{accountId} | Get account by address
-*AccountsApi* | [**listAccounts**](docs/Api/AccountsApi.md#listaccounts) | **GET** /{ledger}/accounts | List all accounts
-*MappingApi* | [**getMapping**](docs/Api/MappingApi.md#getmapping) | **GET** /{ledger}/mapping | Get mapping
-*MappingApi* | [**updateMapping**](docs/Api/MappingApi.md#updatemapping) | **PUT** /{ledger}/mapping | Put mapping
-*ScriptApi* | [**runScript**](docs/Api/ScriptApi.md#runscript) | **POST** /{ledger}/script | Execute Numscript
-*ServerApi* | [**getInfo**](docs/Api/ServerApi.md#getinfo) | **GET** /_info | Server Info
+*AccountsApi* | [**addMetadataToAccount**](docs/Api/AccountsApi.md#addmetadatatoaccount) | **POST** /{ledger}/accounts/{address}/metadata | Add metadata to an account.
+*AccountsApi* | [**countAccounts**](docs/Api/AccountsApi.md#countaccounts) | **HEAD** /{ledger}/accounts | Count the accounts from a ledger.
+*AccountsApi* | [**getAccount**](docs/Api/AccountsApi.md#getaccount) | **GET** /{ledger}/accounts/{address} | Get account by its address.
+*AccountsApi* | [**listAccounts**](docs/Api/AccountsApi.md#listaccounts) | **GET** /{ledger}/accounts | List accounts from a ledger.
+*MappingApi* | [**getMapping**](docs/Api/MappingApi.md#getmapping) | **GET** /{ledger}/mapping | Get the mapping of a ledger.
+*MappingApi* | [**updateMapping**](docs/Api/MappingApi.md#updatemapping) | **PUT** /{ledger}/mapping | Update the mapping of a ledger.
+*ScriptApi* | [**runScript**](docs/Api/ScriptApi.md#runscript) | **POST** /{ledger}/script | Execute a Numscript.
+*ServerApi* | [**getInfo**](docs/Api/ServerApi.md#getinfo) | **GET** /_info | Show server information.
 *StatsApi* | [**readStats**](docs/Api/StatsApi.md#readstats) | **GET** /{ledger}/stats | Get Stats
-*TransactionsApi* | [**addMetadataOnTransaction**](docs/Api/TransactionsApi.md#addmetadataontransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set Transaction Metadata
-*TransactionsApi* | [**countTransactions**](docs/Api/TransactionsApi.md#counttransactions) | **HEAD** /{ledger}/transactions | Count transactions
-*TransactionsApi* | [**createTransaction**](docs/Api/TransactionsApi.md#createtransaction) | **POST** /{ledger}/transactions | Create Transaction
-*TransactionsApi* | [**createTransactions**](docs/Api/TransactionsApi.md#createtransactions) | **POST** /{ledger}/transactions/batch | Create Transactions Batch
-*TransactionsApi* | [**getTransaction**](docs/Api/TransactionsApi.md#gettransaction) | **GET** /{ledger}/transactions/{txid} | Get Transaction
-*TransactionsApi* | [**listTransactions**](docs/Api/TransactionsApi.md#listtransactions) | **GET** /{ledger}/transactions | Get all Transactions
-*TransactionsApi* | [**revertTransaction**](docs/Api/TransactionsApi.md#reverttransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert Transaction
+*TransactionsApi* | [**addMetadataOnTransaction**](docs/Api/TransactionsApi.md#addmetadataontransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set the metadata of a transaction by its ID.
+*TransactionsApi* | [**countTransactions**](docs/Api/TransactionsApi.md#counttransactions) | **HEAD** /{ledger}/transactions | Count the transactions from a ledger.
+*TransactionsApi* | [**createTransaction**](docs/Api/TransactionsApi.md#createtransaction) | **POST** /{ledger}/transactions | Create a new transaction to a ledger.
+*TransactionsApi* | [**createTransactions**](docs/Api/TransactionsApi.md#createtransactions) | **POST** /{ledger}/transactions/batch | Create a new batch of transactions to a ledger.
+*TransactionsApi* | [**getTransaction**](docs/Api/TransactionsApi.md#gettransaction) | **GET** /{ledger}/transactions/{txid} | Get transaction from a ledger by its ID.
+*TransactionsApi* | [**listTransactions**](docs/Api/TransactionsApi.md#listtransactions) | **GET** /{ledger}/transactions | List transactions from a ledger.
+*TransactionsApi* | [**revertTransaction**](docs/Api/TransactionsApi.md#reverttransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert a ledger transaction by its ID.
 
 ## Models
 
 - [Account](docs/Model/Account.md)
-- [AccountCursor](docs/Model/AccountCursor.md)
-- [AccountCursorAllOf](docs/Model/AccountCursorAllOf.md)
-- [AccountCursorResponse](docs/Model/AccountCursorResponse.md)
-- [AccountResponse](docs/Model/AccountResponse.md)
+- [AccountWithVolumesAndBalances](docs/Model/AccountWithVolumesAndBalances.md)
 - [Config](docs/Model/Config.md)
 - [ConfigInfo](docs/Model/ConfigInfo.md)
 - [ConfigInfoResponse](docs/Model/ConfigInfoResponse.md)
 - [Contract](docs/Model/Contract.md)
 - [CreateTransactionResponse](docs/Model/CreateTransactionResponse.md)
+- [CreateTransactions200Response](docs/Model/CreateTransactions200Response.md)
+- [CreateTransactions200ResponseAllOf](docs/Model/CreateTransactions200ResponseAllOf.md)
 - [Cursor](docs/Model/Cursor.md)
-- [CursorResponse](docs/Model/CursorResponse.md)
 - [ErrorCode](docs/Model/ErrorCode.md)
 - [ErrorResponse](docs/Model/ErrorResponse.md)
+- [GetAccount200Response](docs/Model/GetAccount200Response.md)
 - [LedgerStorage](docs/Model/LedgerStorage.md)
+- [ListAccounts200Response](docs/Model/ListAccounts200Response.md)
+- [ListAccounts200ResponseCursor](docs/Model/ListAccounts200ResponseCursor.md)
+- [ListAccounts200ResponseCursorAllOf](docs/Model/ListAccounts200ResponseCursorAllOf.md)
+- [ListTransactions200Response](docs/Model/ListTransactions200Response.md)
+- [ListTransactions200ResponseCursor](docs/Model/ListTransactions200ResponseCursor.md)
+- [ListTransactions200ResponseCursorAllOf](docs/Model/ListTransactions200ResponseCursorAllOf.md)
 - [Mapping](docs/Model/Mapping.md)
 - [MappingResponse](docs/Model/MappingResponse.md)
 - [Posting](docs/Model/Posting.md)
@@ -121,11 +126,7 @@ Class | Method | HTTP request | Description
 - [Stats](docs/Model/Stats.md)
 - [StatsResponse](docs/Model/StatsResponse.md)
 - [Transaction](docs/Model/Transaction.md)
-- [TransactionCursor](docs/Model/TransactionCursor.md)
-- [TransactionCursorAllOf](docs/Model/TransactionCursorAllOf.md)
-- [TransactionCursorResponse](docs/Model/TransactionCursorResponse.md)
 - [TransactionData](docs/Model/TransactionData.md)
-- [TransactionListResponse](docs/Model/TransactionListResponse.md)
 - [TransactionResponse](docs/Model/TransactionResponse.md)
 - [Transactions](docs/Model/Transactions.md)
 

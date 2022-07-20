@@ -36,7 +36,7 @@ $apiInstance = new Numary\Ledger\Api\StatsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ledger = 'ledger_example'; // string | ledger
+$ledger = ledger001; // string | name of the ledger
 
 try {
     $result = $apiInstance->readStats($ledger);
@@ -50,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ledger** | **string**| ledger |
+ **ledger** | **string**| name of the ledger |
 
 ### Return type
 
