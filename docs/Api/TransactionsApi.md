@@ -70,7 +70,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -79,7 +79,7 @@ void (empty response body)
 ## `countTransactions()`
 
 ```php
-countTransactions($ledger, $reference, $account, $source, $destination)
+countTransactions($ledger, $reference, $account, $source, $destination, $metadata)
 ```
 
 Count the transactions from a ledger.
@@ -108,9 +108,10 @@ $reference = ref:001; // string | Filter transactions by reference field.
 $account = users:001; // string | Filter transactions with postings involving given account, either as source or destination.
 $source = users:001; // string | Filter transactions with postings involving given account at source.
 $destination = users:001; // string | Filter transactions with postings involving given account at destination.
+$metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
-    $apiInstance->countTransactions($ledger, $reference, $account, $source, $destination);
+    $apiInstance->countTransactions($ledger, $reference, $account, $source, $destination, $metadata);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->countTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -125,6 +126,7 @@ Name | Type | Description  | Notes
  **account** | **string**| Filter transactions with postings involving given account, either as source or destination. | [optional]
  **source** | **string**| Filter transactions with postings involving given account at source. | [optional]
  **destination** | **string**| Filter transactions with postings involving given account at destination. | [optional]
+ **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
 
 ### Return type
 
@@ -146,7 +148,7 @@ void (empty response body)
 ## `createTransaction()`
 
 ```php
-createTransaction($ledger, $transaction_data, $preview): \Numary\Ledger\Model\CreateTransactionResponse
+createTransaction($ledger, $transaction_data, $preview): \Numary\Ledger\Model\TransactionsResponse
 ```
 
 Create a new transaction to a ledger.
@@ -192,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Numary\Ledger\Model\CreateTransactionResponse**](../Model/CreateTransactionResponse.md)
+[**\Numary\Ledger\Model\TransactionsResponse**](../Model/TransactionsResponse.md)
 
 ### Authorization
 
@@ -210,7 +212,7 @@ Name | Type | Description  | Notes
 ## `createTransactions()`
 
 ```php
-createTransactions($ledger, $transactions): \Numary\Ledger\Model\CreateTransactions200Response
+createTransactions($ledger, $transactions): \Numary\Ledger\Model\TransactionsResponse
 ```
 
 Create a new batch of transactions to a ledger.
@@ -254,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Numary\Ledger\Model\CreateTransactions200Response**](../Model/CreateTransactions200Response.md)
+[**\Numary\Ledger\Model\TransactionsResponse**](../Model/TransactionsResponse.md)
 
 ### Authorization
 
@@ -334,7 +336,7 @@ Name | Type | Description  | Notes
 ## `listTransactions()`
 
 ```php
-listTransactions($ledger, $after, $reference, $account, $source, $destination, $start_time, $end_time): \Numary\Ledger\Model\ListTransactions200Response
+listTransactions($ledger, $page_size, $after, $reference, $account, $source, $destination, $start_time, $end_time, $pagination_token, $metadata): \Numary\Ledger\Model\ListTransactions200Response
 ```
 
 List transactions from a ledger.
@@ -361,6 +363,7 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     $config
 );
 $ledger = ledger001; // string | Name of the ledger.
+$page_size = 100; // int | The maximum number of results to return per page
 $after = 1234; // string | Pagination cursor, will return transactions after given txid (in descending order).
 $reference = ref:001; // string | Find transactions by reference field.
 $account = users:001; // string | Find transactions with postings involving given account, either as source or destination.
@@ -368,9 +371,11 @@ $source = users:001; // string | Find transactions with postings involving given
 $destination = users:001; // string | Find transactions with postings involving given account at destination.
 $start_time = 'start_time_example'; // string | Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute).
 $end_time = 'end_time_example'; // string | Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute).
+$pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set.
+$metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
-    $result = $apiInstance->listTransactions($ledger, $after, $reference, $account, $source, $destination, $start_time, $end_time);
+    $result = $apiInstance->listTransactions($ledger, $page_size, $after, $reference, $account, $source, $destination, $start_time, $end_time, $pagination_token, $metadata);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->listTransactions: ', $e->getMessage(), PHP_EOL;
@@ -382,6 +387,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| Name of the ledger. |
+ **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15]
  **after** | **string**| Pagination cursor, will return transactions after given txid (in descending order). | [optional]
  **reference** | **string**| Find transactions by reference field. | [optional]
  **account** | **string**| Find transactions with postings involving given account, either as source or destination. | [optional]
@@ -389,6 +395,8 @@ Name | Type | Description  | Notes
  **destination** | **string**| Find transactions with postings involving given account at destination. | [optional]
  **start_time** | **string**| Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute). | [optional]
  **end_time** | **string**| Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute). | [optional]
+ **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional]
+ **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
 
 ### Return type
 
