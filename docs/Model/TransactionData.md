@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**timestamp** | **\DateTime** |  | [optional]
 **postings** | [**\Numary\Ledger\Model\Posting[]**](Posting.md) |  |
 **reference** | **string** |  | [optional]
 **metadata** | **array<string,mixed>** |  | [optional]
