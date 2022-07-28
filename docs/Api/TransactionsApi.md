@@ -105,9 +105,9 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
 );
 $ledger = ledger001; // string | Name of the ledger.
 $reference = ref:001; // string | Filter transactions by reference field.
-$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination.
-$source = users:001; // string | Filter transactions with postings involving given account at source.
-$destination = users:001; // string | Filter transactions with postings involving given account at destination.
+$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $).
+$source = users:001; // string | Filter transactions with postings involving given account at source (regular expression placed between ^ and $).
+$destination = users:001; // string | Filter transactions with postings involving given account at destination (regular expression placed between ^ and $).
 $metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
@@ -123,9 +123,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ledger** | **string**| Name of the ledger. |
  **reference** | **string**| Filter transactions by reference field. | [optional]
- **account** | **string**| Filter transactions with postings involving given account, either as source or destination. | [optional]
- **source** | **string**| Filter transactions with postings involving given account at source. | [optional]
- **destination** | **string**| Filter transactions with postings involving given account at destination. | [optional]
+ **account** | **string**| Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $). | [optional]
+ **source** | **string**| Filter transactions with postings involving given account at source (regular expression placed between ^ and $). | [optional]
+ **destination** | **string**| Filter transactions with postings involving given account at destination (regular expression placed between ^ and $). | [optional]
  **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
 
 ### Return type
