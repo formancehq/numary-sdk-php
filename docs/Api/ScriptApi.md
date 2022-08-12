@@ -1,10 +1,10 @@
 # Numary\Ledger\ScriptApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to https://.o.numary.cloud/ledger, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**runScript()**](ScriptApi.md#runScript) | **POST** /{ledger}/script | Execute a Numscript.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**runScript()**](ScriptApi.md#runScript) | **POST** /{ledger}/script | Execute a Numscript. |
 
 
 ## `runScript()`
@@ -48,11 +48,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **script** | [**\Numary\Ledger\Model\Script**](../Model/Script.md)|  |
- **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **script** | [**\Numary\Ledger\Model\Script**](../Model/Script.md)|  | |
+| **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional] |
 
 ### Return type
 
