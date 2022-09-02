@@ -1,16 +1,16 @@
 # Numary\Ledger\TransactionsApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to https://.o.numary.cloud/ledger, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addMetadataOnTransaction()**](TransactionsApi.md#addMetadataOnTransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set the metadata of a transaction by its ID.
-[**countTransactions()**](TransactionsApi.md#countTransactions) | **HEAD** /{ledger}/transactions | Count the transactions from a ledger.
-[**createTransaction()**](TransactionsApi.md#createTransaction) | **POST** /{ledger}/transactions | Create a new transaction to a ledger.
-[**createTransactions()**](TransactionsApi.md#createTransactions) | **POST** /{ledger}/transactions/batch | Create a new batch of transactions to a ledger.
-[**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /{ledger}/transactions/{txid} | Get transaction from a ledger by its ID.
-[**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /{ledger}/transactions | List transactions from a ledger.
-[**revertTransaction()**](TransactionsApi.md#revertTransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert a ledger transaction by its ID.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addMetadataOnTransaction()**](TransactionsApi.md#addMetadataOnTransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set the metadata of a transaction by its ID. |
+| [**countTransactions()**](TransactionsApi.md#countTransactions) | **HEAD** /{ledger}/transactions | Count the transactions from a ledger. |
+| [**createTransaction()**](TransactionsApi.md#createTransaction) | **POST** /{ledger}/transactions | Create a new transaction to a ledger. |
+| [**createTransactions()**](TransactionsApi.md#createTransactions) | **POST** /{ledger}/transactions/batch | Create a new batch of transactions to a ledger. |
+| [**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /{ledger}/transactions/{txid} | Get transaction from a ledger by its ID. |
+| [**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /{ledger}/transactions | List transactions from a ledger. |
+| [**revertTransaction()**](TransactionsApi.md#revertTransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert a ledger transaction by its ID. |
 
 
 ## `addMetadataOnTransaction()`
@@ -53,11 +53,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **txid** | **int**| Transaction ID. |
- **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **txid** | **int**| Transaction ID. | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata | [optional] |
 
 ### Return type
 
@@ -105,9 +105,9 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
 );
 $ledger = ledger001; // string | Name of the ledger.
 $reference = ref:001; // string | Filter transactions by reference field.
-$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination.
-$source = users:001; // string | Filter transactions with postings involving given account at source.
-$destination = users:001; // string | Filter transactions with postings involving given account at destination.
+$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $).
+$source = users:001; // string | Filter transactions with postings involving given account at source (regular expression placed between ^ and $).
+$destination = users:001; // string | Filter transactions with postings involving given account at destination (regular expression placed between ^ and $).
 $metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
@@ -119,14 +119,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **reference** | **string**| Filter transactions by reference field. | [optional]
- **account** | **string**| Filter transactions with postings involving given account, either as source or destination. | [optional]
- **source** | **string**| Filter transactions with postings involving given account at source. | [optional]
- **destination** | **string**| Filter transactions with postings involving given account at destination. | [optional]
- **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **reference** | **string**| Filter transactions by reference field. | [optional] |
+| **account** | **string**| Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $). | [optional] |
+| **source** | **string**| Filter transactions with postings involving given account at source (regular expression placed between ^ and $). | [optional] |
+| **destination** | **string**| Filter transactions with postings involving given account at destination (regular expression placed between ^ and $). | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
 
 ### Return type
 
@@ -186,11 +186,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)|  |
- **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)|  | |
+| **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional] |
 
 ### Return type
 
@@ -249,10 +249,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **transactions** | [**\Numary\Ledger\Model\Transactions**](../Model/Transactions.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **transactions** | [**\Numary\Ledger\Model\Transactions**](../Model/Transactions.md)|  | |
 
 ### Return type
 
@@ -311,10 +311,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **txid** | **int**| Transaction ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **txid** | **int**| Transaction ID. | |
 
 ### Return type
 
@@ -384,19 +384,19 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15]
- **after** | **string**| Pagination cursor, will return transactions after given txid (in descending order). | [optional]
- **reference** | **string**| Find transactions by reference field. | [optional]
- **account** | **string**| Find transactions with postings involving given account, either as source or destination. | [optional]
- **source** | **string**| Find transactions with postings involving given account at source. | [optional]
- **destination** | **string**| Find transactions with postings involving given account at destination. | [optional]
- **start_time** | **string**| Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute). | [optional]
- **end_time** | **string**| Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute). | [optional]
- **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional]
- **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15] |
+| **after** | **string**| Pagination cursor, will return transactions after given txid (in descending order). | [optional] |
+| **reference** | **string**| Find transactions by reference field. | [optional] |
+| **account** | **string**| Find transactions with postings involving given account, either as source or destination. | [optional] |
+| **source** | **string**| Find transactions with postings involving given account at source. | [optional] |
+| **destination** | **string**| Find transactions with postings involving given account at destination. | [optional] |
+| **start_time** | **string**| Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute). | [optional] |
+| **end_time** | **string**| Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute). | [optional] |
+| **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
 
 ### Return type
 
@@ -455,10 +455,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **txid** | **int**| Transaction ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **txid** | **int**| Transaction ID. | |
 
 ### Return type
 

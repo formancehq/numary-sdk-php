@@ -1,13 +1,13 @@
 # Numary\Ledger\AccountsApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to https://.o.numary.cloud/ledger, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addMetadataToAccount()**](AccountsApi.md#addMetadataToAccount) | **POST** /{ledger}/accounts/{address}/metadata | Add metadata to an account.
-[**countAccounts()**](AccountsApi.md#countAccounts) | **HEAD** /{ledger}/accounts | Count the accounts from a ledger.
-[**getAccount()**](AccountsApi.md#getAccount) | **GET** /{ledger}/accounts/{address} | Get account by its address.
-[**listAccounts()**](AccountsApi.md#listAccounts) | **GET** /{ledger}/accounts | List accounts from a ledger.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addMetadataToAccount()**](AccountsApi.md#addMetadataToAccount) | **POST** /{ledger}/accounts/{address}/metadata | Add metadata to an account. |
+| [**countAccounts()**](AccountsApi.md#countAccounts) | **HEAD** /{ledger}/accounts | Count the accounts from a ledger. |
+| [**getAccount()**](AccountsApi.md#getAccount) | **GET** /{ledger}/accounts/{address} | Get account by its address. |
+| [**listAccounts()**](AccountsApi.md#listAccounts) | **GET** /{ledger}/accounts | List accounts from a ledger. |
 
 
 ## `addMetadataToAccount()`
@@ -50,11 +50,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; |
- **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata | |
 
 ### Return type
 
@@ -113,11 +113,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional]
- **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
 
 ### Return type
 
@@ -176,10 +176,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; | |
 
 ### Return type
 
@@ -246,16 +246,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15]
- **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional]
- **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional]
- **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
- **balance** | **int**| Filter accounts by their balance (default operator is gte) | [optional]
- **balance_operator** | **string**| Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, or equal | [optional]
- **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15] |
+| **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional] |
+| **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
+| **balance** | **int**| Filter accounts by their balance (default operator is gte) | [optional] |
+| **balance_operator** | **string**| Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, or equal | [optional] |
+| **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional] |
 
 ### Return type
 
