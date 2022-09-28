@@ -1,11 +1,11 @@
 # Numary\Ledger\BalancesApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to https://.o.numary.cloud/ledger, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getBalances()**](BalancesApi.md#getBalances) | **GET** /{ledger}/balances | Get the balances from a ledger&#39;s account
-[**getBalancesAggregated()**](BalancesApi.md#getBalancesAggregated) | **GET** /{ledger}/aggregate/balances | Get the aggregated balances from selected accounts
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getBalances()**](BalancesApi.md#getBalances) | **GET** /{ledger}/balances | Get the balances from a ledger&#39;s account |
+| [**getBalancesAggregated()**](BalancesApi.md#getBalancesAggregated) | **GET** /{ledger}/aggregate/balances | Get the aggregated balances from selected accounts |
 
 
 ## `getBalances()`
@@ -50,12 +50,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Filter balances involving given account, either as source or destination. | [optional]
- **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional]
- **pagination_token** | **string**| Parameter used in pagination requests.  Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Filter balances involving given account, either as source or destination. | [optional] |
+| **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional] |
+| **pagination_token** | **string**| Parameter used in pagination requests.  Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. | [optional] |
 
 ### Return type
 
@@ -114,10 +114,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Filter balances involving given account, either as source or destination. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Filter balances involving given account, either as source or destination. | [optional] |
 
 ### Return type
 

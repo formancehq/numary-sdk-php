@@ -1,10 +1,10 @@
 # Numary\Ledger\StatsApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to https://.o.numary.cloud/ledger, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**readStats()**](StatsApi.md#readStats) | **GET** /{ledger}/stats | Get Stats
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**readStats()**](StatsApi.md#readStats) | **GET** /{ledger}/stats | Get Stats |
 
 
 ## `readStats()`
@@ -48,9 +48,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| name of the ledger |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| name of the ledger | |
 
 ### Return type
 
