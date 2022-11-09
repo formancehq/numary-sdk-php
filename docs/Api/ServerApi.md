@@ -1,10 +1,10 @@
 # Numary\Ledger\ServerApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to https://.o.numary.cloud/ledger, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getInfo()**](ServerApi.md#getInfo) | **GET** /_info | Show server information.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getInfo()**](ServerApi.md#getInfo) | **GET** /_info | Show server information. |
 
 
 ## `getInfo()`

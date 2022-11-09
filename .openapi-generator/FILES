@@ -13,6 +13,7 @@ docs/Api/StatsApi.md
 docs/Api/TransactionsApi.md
 docs/Model/Account.md
 docs/Model/AccountWithVolumesAndBalances.md
+docs/Model/AddMetadataToAccount409Response.md
 docs/Model/Config.md
 docs/Model/ConfigInfo.md
 docs/Model/ConfigInfoResponse.md
@@ -43,6 +44,7 @@ docs/Model/ListTransactions200ResponseCursorAllOf.md
 docs/Model/Mapping.md
 docs/Model/MappingResponse.md
 docs/Model/Posting.md
+docs/Model/RunScript400Response.md
 docs/Model/Script.md
 docs/Model/ScriptResult.md
 docs/Model/Stats.md
@@ -65,6 +67,7 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/Account.php
 lib/Model/AccountWithVolumesAndBalances.php
+lib/Model/AddMetadataToAccount409Response.php
 lib/Model/Config.php
 lib/Model/ConfigInfo.php
 lib/Model/ConfigInfoResponse.php
@@ -96,6 +99,7 @@ lib/Model/Mapping.php
 lib/Model/MappingResponse.php
 lib/Model/ModelInterface.php
 lib/Model/Posting.php
+lib/Model/RunScript400Response.php
 lib/Model/Script.php
 lib/Model/ScriptResult.php
 lib/Model/Stats.php
@@ -108,3 +112,5 @@ lib/Model/TransactionsResponse.php
 lib/Model/Volume.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/AddMetadataToAccount409ResponseTest.php
+test/Model/RunScript400ResponseTest.php
