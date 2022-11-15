@@ -1,11 +1,11 @@
 # Numary\Ledger\MappingApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to https://.o.numary.cloud/ledger, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getMapping()**](MappingApi.md#getMapping) | **GET** /{ledger}/mapping | Get the mapping of a ledger.
-[**updateMapping()**](MappingApi.md#updateMapping) | **PUT** /{ledger}/mapping | Update the mapping of a ledger.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getMapping()**](MappingApi.md#getMapping) | **GET** /{ledger}/mapping | Get the mapping of a ledger. |
+| [**updateMapping()**](MappingApi.md#updateMapping) | **PUT** /{ledger}/mapping | Update the mapping of a ledger. |
 
 
 ## `getMapping()`
@@ -47,9 +47,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
 
 ### Return type
 
@@ -108,10 +108,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **mapping** | [**\Numary\Ledger\Model\Mapping**](../Model/Mapping.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **mapping** | [**\Numary\Ledger\Model\Mapping**](../Model/Mapping.md)|  | |
 
 ### Return type
 
