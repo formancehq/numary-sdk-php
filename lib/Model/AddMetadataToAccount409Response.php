@@ -1,6 +1,6 @@
 <?php
 /**
- * ListTransactions200ResponseCursor
+ * AddMetadataToAccount409Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Numary\Ledger\ObjectSerializer;
 
 /**
- * ListTransactions200ResponseCursor Class Doc Comment
+ * AddMetadataToAccount409Response Class Doc Comment
  *
  * @category Class
  * @package  Numary\Ledger
@@ -40,7 +40,7 @@ use \Numary\Ledger\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, \JsonSerializable
+class AddMetadataToAccount409Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'listTransactions_200_response_cursor';
+    protected static $openAPIModelName = 'addMetadataToAccount_409_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'page_size' => 'int',
-        'has_more' => 'bool',
-        'previous' => 'string',
-        'next' => 'string',
-        'data' => '\Numary\Ledger\Model\Transaction[]'
+        'error_code' => 'string',
+        'error_message' => 'string'
     ];
 
     /**
@@ -72,11 +69,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'page_size' => null,
-        'has_more' => null,
-        'previous' => null,
-        'next' => null,
-        'data' => null
+        'error_code' => null,
+        'error_message' => null
     ];
 
     /**
@@ -85,11 +79,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'page_size' => false,
-		'has_more' => false,
-		'previous' => false,
-		'next' => false,
-		'data' => false
+        'error_code' => false,
+		'error_message' => false
     ];
 
     /**
@@ -178,11 +169,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'page_size' => 'page_size',
-        'has_more' => 'has_more',
-        'previous' => 'previous',
-        'next' => 'next',
-        'data' => 'data'
+        'error_code' => 'error_code',
+        'error_message' => 'error_message'
     ];
 
     /**
@@ -191,11 +179,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
-        'page_size' => 'setPageSize',
-        'has_more' => 'setHasMore',
-        'previous' => 'setPrevious',
-        'next' => 'setNext',
-        'data' => 'setData'
+        'error_code' => 'setErrorCode',
+        'error_message' => 'setErrorMessage'
     ];
 
     /**
@@ -204,11 +189,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
-        'page_size' => 'getPageSize',
-        'has_more' => 'getHasMore',
-        'previous' => 'getPrevious',
-        'next' => 'getNext',
-        'data' => 'getData'
+        'error_code' => 'getErrorCode',
+        'error_message' => 'getErrorMessage'
     ];
 
     /**
@@ -268,11 +250,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('page_size', $data ?? [], null);
-        $this->setIfExists('has_more', $data ?? [], null);
-        $this->setIfExists('previous', $data ?? [], null);
-        $this->setIfExists('next', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('error_message', $data ?? [], null);
     }
 
     /**
@@ -302,11 +281,8 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['page_size'] === null) {
-            $invalidProperties[] = "'page_size' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['error_code'] === null) {
+            $invalidProperties[] = "'error_code' can't be null";
         }
         return $invalidProperties;
     }
@@ -324,146 +300,59 @@ class ListTransactions200ResponseCursor implements ModelInterface, ArrayAccess, 
 
 
     /**
-     * Gets page_size
+     * Gets error_code
      *
-     * @return int
+     * @return string
      */
-    public function getPageSize()
+    public function getErrorCode()
     {
-        return $this->container['page_size'];
+        return $this->container['error_code'];
     }
 
     /**
-     * Sets page_size
+     * Sets error_code
      *
-     * @param int $page_size page_size
+     * @param string $error_code error_code
      *
      * @return self
      */
-    public function setPageSize($page_size)
+    public function setErrorCode($error_code)
     {
 
-        if (is_null($page_size)) {
-            throw new \InvalidArgumentException('non-nullable page_size cannot be null');
+        if (is_null($error_code)) {
+            throw new \InvalidArgumentException('non-nullable error_code cannot be null');
         }
 
-        $this->container['page_size'] = $page_size;
+        $this->container['error_code'] = $error_code;
 
         return $this;
     }
 
     /**
-     * Gets has_more
-     *
-     * @return bool|null
-     */
-    public function getHasMore()
-    {
-        return $this->container['has_more'];
-    }
-
-    /**
-     * Sets has_more
-     *
-     * @param bool|null $has_more has_more
-     *
-     * @return self
-     */
-    public function setHasMore($has_more)
-    {
-
-        if (is_null($has_more)) {
-            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
-        }
-
-        $this->container['has_more'] = $has_more;
-
-        return $this;
-    }
-
-    /**
-     * Gets previous
+     * Gets error_message
      *
      * @return string|null
      */
-    public function getPrevious()
+    public function getErrorMessage()
     {
-        return $this->container['previous'];
+        return $this->container['error_message'];
     }
 
     /**
-     * Sets previous
+     * Sets error_message
      *
-     * @param string|null $previous previous
+     * @param string|null $error_message error_message
      *
      * @return self
      */
-    public function setPrevious($previous)
+    public function setErrorMessage($error_message)
     {
 
-        if (is_null($previous)) {
-            throw new \InvalidArgumentException('non-nullable previous cannot be null');
+        if (is_null($error_message)) {
+            throw new \InvalidArgumentException('non-nullable error_message cannot be null');
         }
 
-        $this->container['previous'] = $previous;
-
-        return $this;
-    }
-
-    /**
-     * Gets next
-     *
-     * @return string|null
-     */
-    public function getNext()
-    {
-        return $this->container['next'];
-    }
-
-    /**
-     * Sets next
-     *
-     * @param string|null $next next
-     *
-     * @return self
-     */
-    public function setNext($next)
-    {
-
-        if (is_null($next)) {
-            throw new \InvalidArgumentException('non-nullable next cannot be null');
-        }
-
-        $this->container['next'] = $next;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Numary\Ledger\Model\Transaction[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Numary\Ledger\Model\Transaction[] $data data
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-        }
-
-        $this->container['data'] = $data;
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }
