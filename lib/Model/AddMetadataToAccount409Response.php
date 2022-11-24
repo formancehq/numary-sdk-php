@@ -1,6 +1,6 @@
 <?php
 /**
- * StatsResponse
+ * AddMetadataToAccount409Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Numary\Ledger\ObjectSerializer;
 
 /**
- * StatsResponse Class Doc Comment
+ * AddMetadataToAccount409Response Class Doc Comment
  *
  * @category Class
  * @package  Numary\Ledger
@@ -40,7 +40,7 @@ use \Numary\Ledger\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class AddMetadataToAccount409Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatsResponse';
+    protected static $openAPIModelName = 'addMetadataToAccount_409_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Numary\Ledger\Model\Stats'
+        'error_code' => 'string',
+        'error_message' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'error_code' => null,
+        'error_message' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'error_code' => false,
+		'error_message' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'error_code' => 'error_code',
+        'error_message' => 'error_message'
     ];
 
     /**
@@ -175,7 +179,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'error_code' => 'setErrorCode',
+        'error_message' => 'setErrorMessage'
     ];
 
     /**
@@ -184,7 +189,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'error_code' => 'getErrorCode',
+        'error_message' => 'getErrorMessage'
     ];
 
     /**
@@ -244,7 +250,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('error_message', $data ?? [], null);
     }
 
     /**
@@ -274,8 +281,8 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['error_code'] === null) {
+            $invalidProperties[] = "'error_code' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,28 +300,55 @@ class StatsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets data
+     * Gets error_code
      *
-     * @return \Numary\Ledger\Model\Stats
+     * @return string
      */
-    public function getData()
+    public function getErrorCode()
     {
-        return $this->container['data'];
+        return $this->container['error_code'];
     }
 
     /**
-     * Sets data
+     * Sets error_code
      *
-     * @param \Numary\Ledger\Model\Stats $data data
+     * @param string $error_code error_code
      *
      * @return self
      */
-    public function setData($data)
+    public function setErrorCode($error_code)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($error_code)) {
+            throw new \InvalidArgumentException('non-nullable error_code cannot be null');
         }
-        $this->container['data'] = $data;
+        $this->container['error_code'] = $error_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_message
+     *
+     * @return string|null
+     */
+    public function getErrorMessage()
+    {
+        return $this->container['error_message'];
+    }
+
+    /**
+     * Sets error_message
+     *
+     * @param string|null $error_message error_message
+     *
+     * @return self
+     */
+    public function setErrorMessage($error_message)
+    {
+        if (is_null($error_message)) {
+            throw new \InvalidArgumentException('non-nullable error_message cannot be null');
+        }
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }
