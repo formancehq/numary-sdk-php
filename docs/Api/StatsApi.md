@@ -1,10 +1,10 @@
 # Numary\Ledger\StatsApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**readStats()**](StatsApi.md#readStats) | **GET** /{ledger}/stats | Get Stats
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**readStats()**](StatsApi.md#readStats) | **GET** /{ledger}/stats | Get Stats |
 
 
 ## `readStats()`
@@ -24,17 +24,11 @@ Get ledger stats (aggregate metrics on accounts and transactions) The stats for 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\StatsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | name of the ledger
 
@@ -48,9 +42,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| name of the ledger |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| name of the ledger | |
 
 ### Return type
 
@@ -58,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 

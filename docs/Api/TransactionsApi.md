@@ -1,16 +1,16 @@
 # Numary\Ledger\TransactionsApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addMetadataOnTransaction()**](TransactionsApi.md#addMetadataOnTransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set the metadata of a transaction by its ID.
-[**countTransactions()**](TransactionsApi.md#countTransactions) | **HEAD** /{ledger}/transactions | Count the transactions from a ledger.
-[**createTransaction()**](TransactionsApi.md#createTransaction) | **POST** /{ledger}/transactions | Create a new transaction to a ledger.
-[**createTransactions()**](TransactionsApi.md#createTransactions) | **POST** /{ledger}/transactions/batch | Create a new batch of transactions to a ledger.
-[**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /{ledger}/transactions/{txid} | Get transaction from a ledger by its ID.
-[**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /{ledger}/transactions | List transactions from a ledger.
-[**revertTransaction()**](TransactionsApi.md#revertTransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert a ledger transaction by its ID.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addMetadataOnTransaction()**](TransactionsApi.md#addMetadataOnTransaction) | **POST** /{ledger}/transactions/{txid}/metadata | Set the metadata of a transaction by its ID. |
+| [**countTransactions()**](TransactionsApi.md#countTransactions) | **HEAD** /{ledger}/transactions | Count the transactions from a ledger. |
+| [**createTransaction()**](TransactionsApi.md#createTransaction) | **POST** /{ledger}/transactions | Create a new transaction to a ledger. |
+| [**createTransactions()**](TransactionsApi.md#createTransactions) | **POST** /{ledger}/transactions/batch | Create a new batch of transactions to a ledger. |
+| [**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /{ledger}/transactions/{txid} | Get transaction from a ledger by its ID. |
+| [**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /{ledger}/transactions | List transactions from a ledger. |
+| [**revertTransaction()**](TransactionsApi.md#revertTransaction) | **POST** /{ledger}/transactions/{txid}/revert | Revert a ledger transaction by its ID. |
 
 
 ## `addMetadataOnTransaction()`
@@ -28,17 +28,11 @@ Set the metadata of a transaction by its ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $txid = 1234; // int | Transaction ID.
@@ -53,11 +47,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **txid** | **int**| Transaction ID. |
- **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **txid** | **int**| Transaction ID. | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata | [optional] |
 
 ### Return type
 
@@ -65,7 +59,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,7 +73,7 @@ void (empty response body)
 ## `countTransactions()`
 
 ```php
-countTransactions($ledger, $reference, $account, $source, $destination, $metadata)
+countTransactions($ledger, $reference, $account, $source, $destination, $start_time, $end_time, $metadata)
 ```
 
 Count the transactions from a ledger.
@@ -91,27 +85,23 @@ Count the transactions from a ledger.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $reference = ref:001; // string | Filter transactions by reference field.
-$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination.
-$source = users:001; // string | Filter transactions with postings involving given account at source.
-$destination = users:001; // string | Filter transactions with postings involving given account at destination.
+$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $).
+$source = users:001; // string | Filter transactions with postings involving given account at source (regular expression placed between ^ and $).
+$destination = users:001; // string | Filter transactions with postings involving given account at destination (regular expression placed between ^ and $).
+$start_time = 'start_time_example'; // string | Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute).
+$end_time = 'end_time_example'; // string | Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute).
 $metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
-    $apiInstance->countTransactions($ledger, $reference, $account, $source, $destination, $metadata);
+    $apiInstance->countTransactions($ledger, $reference, $account, $source, $destination, $start_time, $end_time, $metadata);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->countTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -119,14 +109,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **reference** | **string**| Filter transactions by reference field. | [optional]
- **account** | **string**| Filter transactions with postings involving given account, either as source or destination. | [optional]
- **source** | **string**| Filter transactions with postings involving given account at source. | [optional]
- **destination** | **string**| Filter transactions with postings involving given account at destination. | [optional]
- **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **reference** | **string**| Filter transactions by reference field. | [optional] |
+| **account** | **string**| Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $). | [optional] |
+| **source** | **string**| Filter transactions with postings involving given account at source (regular expression placed between ^ and $). | [optional] |
+| **destination** | **string**| Filter transactions with postings involving given account at destination (regular expression placed between ^ and $). | [optional] |
+| **start_time** | **string**| Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute). | [optional] |
+| **end_time** | **string**| Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute). | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
 
 ### Return type
 
@@ -134,7 +126,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -148,7 +140,7 @@ void (empty response body)
 ## `createTransaction()`
 
 ```php
-createTransaction($ledger, $transaction_data, $preview): \Numary\Ledger\Model\TransactionsResponse
+createTransaction($ledger, $post_transaction, $preview): \Numary\Ledger\Model\TransactionsResponse
 ```
 
 Create a new transaction to a ledger.
@@ -160,24 +152,18 @@ Create a new transaction to a ledger.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
-$transaction_data = new \Numary\Ledger\Model\TransactionData(); // \Numary\Ledger\Model\TransactionData
+$post_transaction = new \Numary\Ledger\Model\PostTransaction(); // \Numary\Ledger\Model\PostTransaction | The request body must contain at least one of the following objects:   - `postings`: suitable for simple transactions   - `script`: enabling more complex transactions with Numscript
 $preview = true; // bool | Set the preview mode. Preview mode doesn't add the logs to the database or publish a message to the message broker.
 
 try {
-    $result = $apiInstance->createTransaction($ledger, $transaction_data, $preview);
+    $result = $apiInstance->createTransaction($ledger, $post_transaction, $preview);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->createTransaction: ', $e->getMessage(), PHP_EOL;
@@ -186,11 +172,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **transaction_data** | [**\Numary\Ledger\Model\TransactionData**](../Model/TransactionData.md)|  |
- **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **post_transaction** | [**\Numary\Ledger\Model\PostTransaction**](../Model/PostTransaction.md)| The request body must contain at least one of the following objects:   - &#x60;postings&#x60;: suitable for simple transactions   - &#x60;script&#x60;: enabling more complex transactions with Numscript | |
+| **preview** | **bool**| Set the preview mode. Preview mode doesn&#39;t add the logs to the database or publish a message to the message broker. | [optional] |
 
 ### Return type
 
@@ -198,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -224,17 +210,11 @@ Create a new batch of transactions to a ledger.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $transactions = new \Numary\Ledger\Model\Transactions(); // \Numary\Ledger\Model\Transactions
@@ -249,10 +229,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **transactions** | [**\Numary\Ledger\Model\Transactions**](../Model/Transactions.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **transactions** | [**\Numary\Ledger\Model\Transactions**](../Model/Transactions.md)|  | |
 
 ### Return type
 
@@ -260,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -286,17 +266,11 @@ Get transaction from a ledger by its ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $txid = 1234; // int | Transaction ID.
@@ -311,10 +285,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **txid** | **int**| Transaction ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **txid** | **int**| Transaction ID. | |
 
 ### Return type
 
@@ -322,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -350,28 +324,22 @@ List transactions from a ledger, sorted by txid in descending order.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
-$page_size = 100; // int | The maximum number of results to return per page
+$page_size = 15; // int | The maximum number of results to return per page
 $after = 1234; // string | Pagination cursor, will return transactions after given txid (in descending order).
 $reference = ref:001; // string | Find transactions by reference field.
-$account = users:001; // string | Find transactions with postings involving given account, either as source or destination.
-$source = users:001; // string | Find transactions with postings involving given account at source.
-$destination = users:001; // string | Find transactions with postings involving given account at destination.
+$account = users:001; // string | Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $).
+$source = users:001; // string | Filter transactions with postings involving given account at source (regular expression placed between ^ and $).
+$destination = users:001; // string | Filter transactions with postings involving given account at destination (regular expression placed between ^ and $).
 $start_time = 'start_time_example'; // string | Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute).
 $end_time = 'end_time_example'; // string | Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute).
-$pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set.
+$pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set.
 $metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below.
 
 try {
@@ -384,19 +352,19 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15]
- **after** | **string**| Pagination cursor, will return transactions after given txid (in descending order). | [optional]
- **reference** | **string**| Find transactions by reference field. | [optional]
- **account** | **string**| Find transactions with postings involving given account, either as source or destination. | [optional]
- **source** | **string**| Find transactions with postings involving given account at source. | [optional]
- **destination** | **string**| Find transactions with postings involving given account at destination. | [optional]
- **start_time** | **string**| Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute). | [optional]
- **end_time** | **string**| Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute). | [optional]
- **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional]
- **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15] |
+| **after** | **string**| Pagination cursor, will return transactions after given txid (in descending order). | [optional] |
+| **reference** | **string**| Find transactions by reference field. | [optional] |
+| **account** | **string**| Filter transactions with postings involving given account, either as source or destination (regular expression placed between ^ and $). | [optional] |
+| **source** | **string**| Filter transactions with postings involving given account at source (regular expression placed between ^ and $). | [optional] |
+| **destination** | **string**| Filter transactions with postings involving given account at destination (regular expression placed between ^ and $). | [optional] |
+| **start_time** | **string**| Filter transactions that occurred after this timestamp. The format is RFC3339 and is inclusive (for example, 12:00:01 includes the first second of the minute). | [optional] |
+| **end_time** | **string**| Filter transactions that occurred before this timestamp. The format is RFC3339 and is exclusive (for example, 12:00:01 excludes the first second of the minute). | [optional] |
+| **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter transactions by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
 
 ### Return type
 
@@ -404,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -430,17 +398,11 @@ Revert a ledger transaction by its ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\TransactionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $txid = 1234; // int | Transaction ID.
@@ -455,10 +417,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **txid** | **int**| Transaction ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **txid** | **int**| Transaction ID. | |
 
 ### Return type
 
@@ -466,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
