@@ -1,10 +1,10 @@
 # Numary\Ledger\ServerApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getInfo()**](ServerApi.md#getInfo) | **GET** /_info | Show server information.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getInfo()**](ServerApi.md#getInfo) | **GET** /_info | Show server information. |
 
 
 ## `getInfo()`
@@ -22,17 +22,11 @@ Show server information.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\ServerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -53,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
