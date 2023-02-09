@@ -1,17 +1,17 @@
 # Numary\Ledger\BalancesApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getBalances()**](BalancesApi.md#getBalances) | **GET** /{ledger}/balances | Get the balances from a ledger&#39;s account
-[**getBalancesAggregated()**](BalancesApi.md#getBalancesAggregated) | **GET** /{ledger}/aggregate/balances | Get the aggregated balances from selected accounts
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getBalances()**](BalancesApi.md#getBalances) | **GET** /{ledger}/balances | Get the balances from a ledger&#39;s account |
+| [**getBalancesAggregated()**](BalancesApi.md#getBalancesAggregated) | **GET** /{ledger}/aggregate/balances | Get the aggregated balances from selected accounts |
 
 
 ## `getBalances()`
 
 ```php
-getBalances($ledger, $address, $after, $pagination_token): \Numary\Ledger\Model\GetBalances200Response
+getBalances($ledger, $address, $after, $cursor, $pagination_token): \Numary\Ledger\Model\BalancesCursorResponse
 ```
 
 Get the balances from a ledger's account
@@ -23,25 +23,20 @@ Get the balances from a ledger's account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\BalancesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $address = users:001; // string | Filter balances involving given account, either as source or destination.
 $after = users:003; // string | Pagination cursor, will return accounts after given address, in descending order.
-$pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests.  Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results.
+$cursor = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set.
+$pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. Deprecated, please use `cursor` instead.
 
 try {
-    $result = $apiInstance->getBalances($ledger, $address, $after, $pagination_token);
+    $result = $apiInstance->getBalances($ledger, $address, $after, $cursor, $pagination_token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BalancesApi->getBalances: ', $e->getMessage(), PHP_EOL;
@@ -50,20 +45,21 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Filter balances involving given account, either as source or destination. | [optional]
- **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional]
- **pagination_token** | **string**| Parameter used in pagination requests.  Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Filter balances involving given account, either as source or destination. | [optional] |
+| **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional] |
+| **cursor** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set. | [optional] |
+| **pagination_token** | **string**| Parameter used in pagination requests. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. Deprecated, please use &#x60;cursor&#x60; instead. | [optional] |
 
 ### Return type
 
-[**\Numary\Ledger\Model\GetBalances200Response**](../Model/GetBalances200Response.md)
+[**\Numary\Ledger\Model\BalancesCursorResponse**](../Model/BalancesCursorResponse.md)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,7 +73,7 @@ Name | Type | Description  | Notes
 ## `getBalancesAggregated()`
 
 ```php
-getBalancesAggregated($ledger, $address): \Numary\Ledger\Model\GetBalancesAggregated200Response
+getBalancesAggregated($ledger, $address): \Numary\Ledger\Model\AggregateBalancesResponse
 ```
 
 Get the aggregated balances from selected accounts
@@ -89,17 +85,11 @@ Get the aggregated balances from selected accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\BalancesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $address = users:001; // string | Filter balances involving given account, either as source or destination.
@@ -114,18 +104,18 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Filter balances involving given account, either as source or destination. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Filter balances involving given account, either as source or destination. | [optional] |
 
 ### Return type
 
-[**\Numary\Ledger\Model\GetBalancesAggregated200Response**](../Model/GetBalancesAggregated200Response.md)
+[**\Numary\Ledger\Model\AggregateBalancesResponse**](../Model/AggregateBalancesResponse.md)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
