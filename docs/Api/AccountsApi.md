@@ -1,13 +1,13 @@
 # Numary\Ledger\AccountsApi
 
-All URIs are relative to https://.o.numary.cloud/ledger.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addMetadataToAccount()**](AccountsApi.md#addMetadataToAccount) | **POST** /{ledger}/accounts/{address}/metadata | Add metadata to an account.
-[**countAccounts()**](AccountsApi.md#countAccounts) | **HEAD** /{ledger}/accounts | Count the accounts from a ledger.
-[**getAccount()**](AccountsApi.md#getAccount) | **GET** /{ledger}/accounts/{address} | Get account by its address.
-[**listAccounts()**](AccountsApi.md#listAccounts) | **GET** /{ledger}/accounts | List accounts from a ledger.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addMetadataToAccount()**](AccountsApi.md#addMetadataToAccount) | **POST** /{ledger}/accounts/{address}/metadata | Add metadata to an account |
+| [**countAccounts()**](AccountsApi.md#countAccounts) | **HEAD** /{ledger}/accounts | Count the accounts from a ledger |
+| [**getAccount()**](AccountsApi.md#getAccount) | **GET** /{ledger}/accounts/{address} | Get account by its address |
+| [**listAccounts()**](AccountsApi.md#listAccounts) | **GET** /{ledger}/accounts | List accounts from a ledger |
 
 
 ## `addMetadataToAccount()`
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 addMetadataToAccount($ledger, $address, $request_body)
 ```
 
-Add metadata to an account.
+Add metadata to an account
 
 ### Example
 
@@ -25,17 +25,11 @@ Add metadata to an account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $address = users:001; // string | Exact address of the account. It must match the following regular expressions pattern: ``` ^\\w+(:\\w+)*$ ```
@@ -50,11 +44,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; |
- **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; | |
+| **request_body** | [**array<string,mixed>**](../Model/mixed.md)| metadata | |
 
 ### Return type
 
@@ -62,7 +56,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,7 +73,7 @@ void (empty response body)
 countAccounts($ledger, $address, $metadata)
 ```
 
-Count the accounts from a ledger.
+Count the accounts from a ledger
 
 ### Example
 
@@ -88,17 +82,11 @@ Count the accounts from a ledger.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $address = users:.+; // string | Filter accounts by address pattern (regular expression placed between ^ and $).
@@ -113,11 +101,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional]
- **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
 
 ### Return type
 
@@ -125,12 +113,12 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -139,10 +127,10 @@ void (empty response body)
 ## `getAccount()`
 
 ```php
-getAccount($ledger, $address): \Numary\Ledger\Model\GetAccount200Response
+getAccount($ledger, $address): \Numary\Ledger\Model\AccountResponse
 ```
 
-Get account by its address.
+Get account by its address
 
 ### Example
 
@@ -151,17 +139,11 @@ Get account by its address.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
 $address = users:001; // string | Exact address of the account. It must match the following regular expressions pattern: ``` ^\\w+(:\\w+)*$ ```
@@ -176,18 +158,18 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **address** | **string**| Exact address of the account. It must match the following regular expressions pattern: &#x60;&#x60;&#x60; ^\\w+(:\\w+)*$ &#x60;&#x60;&#x60; | |
 
 ### Return type
 
-[**\Numary\Ledger\Model\GetAccount200Response**](../Model/GetAccount200Response.md)
+[**\Numary\Ledger\Model\AccountResponse**](../Model/AccountResponse.md)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -201,10 +183,10 @@ Name | Type | Description  | Notes
 ## `listAccounts()`
 
 ```php
-listAccounts($ledger, $page_size, $after, $address, $metadata, $balance, $balance_operator, $pagination_token): \Numary\Ledger\Model\ListAccounts200Response
+listAccounts($ledger, $page_size, $page_size2, $after, $address, $metadata, $balance, $balance_operator, $balance_operator2, $cursor, $pagination_token): \Numary\Ledger\Model\AccountsCursorResponse
 ```
 
-List accounts from a ledger.
+List accounts from a ledger
 
 List accounts from a ledger, sorted by address in descending order.
 
@@ -215,29 +197,26 @@ List accounts from a ledger, sorted by address in descending order.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = Numary\Ledger\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
 
 $apiInstance = new Numary\Ledger\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $ledger = ledger001; // string | Name of the ledger.
-$page_size = 100; // int | The maximum number of results to return per page
+$page_size = 100; // int | The maximum number of results to return per page.
+$page_size2 = 100; // int | The maximum number of results to return per page. Deprecated, please use `pageSize` instead.
 $after = users:003; // string | Pagination cursor, will return accounts after given address, in descending order.
 $address = users:.+; // string | Filter accounts by address pattern (regular expression placed between ^ and $).
 $metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
 $balance = 2400; // int | Filter accounts by their balance (default operator is gte)
-$balance_operator = gte; // string | Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, or equal
-$pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set.
+$balance_operator = gte; // string | Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
+$balance_operator2 = gte; // string | Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not. Deprecated, please use `balanceOperator` instead.
+$cursor = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set.
+$pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set. Deprecated, please use `cursor` instead.
 
 try {
-    $result = $apiInstance->listAccounts($ledger, $page_size, $after, $address, $metadata, $balance, $balance_operator, $pagination_token);
+    $result = $apiInstance->listAccounts($ledger, $page_size, $page_size2, $after, $address, $metadata, $balance, $balance_operator, $balance_operator2, $cursor, $pagination_token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->listAccounts: ', $e->getMessage(), PHP_EOL;
@@ -246,24 +225,27 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ledger** | **string**| Name of the ledger. |
- **page_size** | **int**| The maximum number of results to return per page | [optional] [default to 15]
- **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional]
- **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional]
- **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional]
- **balance** | **int**| Filter accounts by their balance (default operator is gte) | [optional]
- **balance_operator** | **string**| Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, or equal | [optional]
- **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results.  Set to the value of previous for the previous page of results. No other parameters can be set when the pagination token is set. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ledger** | **string**| Name of the ledger. | |
+| **page_size** | **int**| The maximum number of results to return per page. | [optional] [default to 15] |
+| **page_size2** | **int**| The maximum number of results to return per page. Deprecated, please use &#x60;pageSize&#x60; instead. | [optional] [default to 15] |
+| **after** | **string**| Pagination cursor, will return accounts after given address, in descending order. | [optional] |
+| **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
+| **balance** | **int**| Filter accounts by their balance (default operator is gte) | [optional] |
+| **balance_operator** | **string**| Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not. | [optional] |
+| **balance_operator2** | **string**| Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not. Deprecated, please use &#x60;balanceOperator&#x60; instead. | [optional] |
+| **cursor** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set. | [optional] |
+| **pagination_token** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set. Deprecated, please use &#x60;cursor&#x60; instead. | [optional] |
 
 ### Return type
 
-[**\Numary\Ledger\Model\ListAccounts200Response**](../Model/ListAccounts200Response.md)
+[**\Numary\Ledger\Model\AccountsCursorResponse**](../Model/AccountsCursorResponse.md)
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
