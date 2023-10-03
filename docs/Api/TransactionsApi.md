@@ -63,8 +63,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json; charset=utf-8`
-- **Accept**: `application/json; charset=utf-8`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -135,7 +135,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json; charset=utf-8`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -192,8 +192,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json; charset=utf-8`
-- **Accept**: `application/json; charset=utf-8`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -248,8 +248,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json; charset=utf-8`
-- **Accept**: `application/json; charset=utf-8`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -305,7 +305,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json; charset=utf-8`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -389,7 +389,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json; charset=utf-8`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -398,7 +398,7 @@ No authorization required
 ## `revertTransaction()`
 
 ```php
-revertTransaction($ledger, $txid): \Numary\Ledger\Model\TransactionResponse
+revertTransaction($ledger, $txid, $disable_checks): \Numary\Ledger\Model\TransactionResponse
 ```
 
 Revert a ledger transaction by its ID
@@ -418,9 +418,10 @@ $apiInstance = new Numary\Ledger\Api\TransactionsApi(
 );
 $ledger = ledger001; // string | Name of the ledger.
 $txid = 1234; // int | Transaction ID.
+$disable_checks = True; // bool | Allow to disable balances checks
 
 try {
-    $result = $apiInstance->revertTransaction($ledger, $txid);
+    $result = $apiInstance->revertTransaction($ledger, $txid, $disable_checks);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->revertTransaction: ', $e->getMessage(), PHP_EOL;
@@ -433,6 +434,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **ledger** | **string**| Name of the ledger. | |
 | **txid** | **int**| Transaction ID. | |
+| **disable_checks** | **bool**| Allow to disable balances checks | [optional] |
 
 ### Return type
 
@@ -445,7 +447,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json; charset=utf-8`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
