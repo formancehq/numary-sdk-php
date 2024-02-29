@@ -60,8 +60,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json; charset=utf-8`
-- **Accept**: `application/json; charset=utf-8`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
