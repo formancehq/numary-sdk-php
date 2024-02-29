@@ -60,8 +60,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json; charset=utf-8`
-- **Accept**: `application/json; charset=utf-8`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -90,7 +90,7 @@ $apiInstance = new Numary\Ledger\Api\AccountsApi(
 );
 $ledger = ledger001; // string | Name of the ledger.
 $address = users:.+; // string | Filter accounts by address pattern (regular expression placed between ^ and $).
-$metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
+$metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter accounts by metadata key value pairs. The filter can be used like this metadata[key]=value1&metadata[a.nested.key]=value2
 
 try {
     $apiInstance->countAccounts($ledger, $address, $metadata);
@@ -105,7 +105,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **ledger** | **string**| Name of the ledger. | |
 | **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional] |
-| **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
+| **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. The filter can be used like this metadata[key]&#x3D;value1&amp;metadata[a.nested.key]&#x3D;value2 | [optional] |
 
 ### Return type
 
@@ -118,7 +118,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json; charset=utf-8`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -174,7 +174,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json; charset=utf-8`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -183,7 +183,7 @@ No authorization required
 ## `listAccounts()`
 
 ```php
-listAccounts($ledger, $page_size, $page_size2, $after, $address, $metadata, $balance, $balance_operator, $balance_operator2, $cursor, $pagination_token): \Numary\Ledger\Model\AccountsCursorResponse
+listAccounts($ledger, $page_size, $page_size2, $after, $address, $metadata, $balance, $balance_asset, $balance_operator, $balance_operator2, $cursor, $pagination_token): \Numary\Ledger\Model\AccountsCursorResponse
 ```
 
 List accounts from a ledger
@@ -210,13 +210,14 @@ $after = users:003; // string | Pagination cursor, will return accounts after gi
 $address = users:.+; // string | Filter accounts by address pattern (regular expression placed between ^ and $).
 $metadata = metadata[key]=value1&metadata[a.nested.key]=value2; // object | Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below.
 $balance = 2400; // int | Filter accounts by their balance (default operator is gte)
+$balance_asset = 'balance_asset_example'; // string | Filter accounts by their balance asset
 $balance_operator = gte; // string | Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not.
 $balance_operator2 = gte; // string | Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not. Deprecated, please use `balanceOperator` instead.
 $cursor = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set.
 $pagination_token = aHR0cHM6Ly9nLnBhZ2UvTmVrby1SYW1lbj9zaGFyZQ==; // string | Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set. Deprecated, please use `cursor` instead.
 
 try {
-    $result = $apiInstance->listAccounts($ledger, $page_size, $page_size2, $after, $address, $metadata, $balance, $balance_operator, $balance_operator2, $cursor, $pagination_token);
+    $result = $apiInstance->listAccounts($ledger, $page_size, $page_size2, $after, $address, $metadata, $balance, $balance_asset, $balance_operator, $balance_operator2, $cursor, $pagination_token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->listAccounts: ', $e->getMessage(), PHP_EOL;
@@ -234,6 +235,7 @@ try {
 | **address** | **string**| Filter accounts by address pattern (regular expression placed between ^ and $). | [optional] |
 | **metadata** | [**object**](../Model/.md)| Filter accounts by metadata key value pairs. Nested objects can be used as seen in the example below. | [optional] |
 | **balance** | **int**| Filter accounts by their balance (default operator is gte) | [optional] |
+| **balance_asset** | **string**| Filter accounts by their balance asset | [optional] |
 | **balance_operator** | **string**| Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not. | [optional] |
 | **balance_operator2** | **string**| Operator used for the filtering of balances can be greater than/equal, less than/equal, greater than, less than, equal or not. Deprecated, please use &#x60;balanceOperator&#x60; instead. | [optional] |
 | **cursor** | **string**| Parameter used in pagination requests. Maximum page size is set to 15. Set to the value of next for the next page of results. Set to the value of previous for the previous page of results. No other parameters can be set when this parameter is set. | [optional] |
@@ -250,7 +252,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json; charset=utf-8`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
